@@ -1,0 +1,24 @@
+{
+  "name": "vuido-template-compiler",
+  "version": "0.1.0",
+  "description": "Template compiler for Vuido",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mimecorg/vuido.git"
+  },
+  "keywords": [
+    "vuido",
+    "compiler"
+  ],
+  "author": "Michał Męciński",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mimecorg/vuido/issues"
+  },    
+  "homepage": "https://github.com/mimecorg/vuido",
+  "dependencies": {
+    "de-indent": "^1.0.2",
+    "he": "^1.1.1"
+  }
+}

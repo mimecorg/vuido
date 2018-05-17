@@ -1,0 +1,50 @@
+{
+  "name": "vuido",
+  "version": "0.1.0",
+  "description": "Native desktop applications using Vue.js",
+  "main": "dist/vuido.js",
+  "files": [
+    "dist/*.js",
+    "src"
+  ],
+  "scripts": {
+    "build": "npm run build:runtime && npm run build:compiler && npm run build:example",
+    "build:runtime": "webpack --config build/webpack.runtime.config.js",
+    "build:compiler": "webpack --config build/webpack.compiler.config.js",
+    "build:example": "webpack --config example/build/webpack.config.js",
+    "example": "node ./example/dist/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mimecorg/vuido.git"
+  },
+  "keywords": [
+    "vuido",
+    "vue",
+    "libui",
+    "desktop"
+  ],
+  "author": "Michał Męciński",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mimecorg/vuido/issues"
+  },
+  "homepage": "https://github.com/mimecorg/vuido",
+  "dependencies": {
+    "libui-node": "^0.2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "de-indent": "^1.0.2",
+    "he": "^1.1.1",
+    "vue": "^2.5.16",
+    "vue-loader": "^15.0.11",
+    "vue-template-compiler": "^2.5.16",
+    "webpack": "^3.12.0"
+  }
+}
