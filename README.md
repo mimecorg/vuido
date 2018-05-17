@@ -3,7 +3,7 @@
 Create native desktop applications for Windows, OS X and Linux using [Vue.js](https://vuejs.org/).
 
 [![NPM module](https://img.shields.io/npm/v/vuido.svg)](https://npmjs.org/package/vuido)
-[![MIT License](https://img.shields.io/github/license/mimecorg/vuido.svg)](https://github.com/license/vuido/blob/master/LICENSE)
+[![MIT License](https://img.shields.io/github/license/mimecorg/vuido.svg)](https://github.com/mimecorg/vuido/blob/master/LICENSE)
 
 ## Introduction
 
