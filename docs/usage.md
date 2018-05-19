@@ -1,8 +1,8 @@
 # Usage
 
-Vuido is simply a port of Vue.js for the desktop and it can be used just like Vue.js. Vuido supports most of the standard Vue.js API, including methods, components and directives. It also supports many Vue.js extensions, for example Vuex.
+Vuido is simply a port of Vue.js for the desktop and it can be used just like Vue.js. Vuido supports most of the standard Vue.js API, including methods, components and directives. It's also compatible with many Vue.js extensions, for example Vuex.
 
-An application using Vuido runs in a Node.js environment, so you can use all standard Node.js modules, for example fs and http. You can also use any external package which is compatible with Node.js.
+An application using Vuido runs in a Node.js environment, so it can use all standard Node.js modules, for example fs and http, and any packages compatible with Node.js.
 
 ## Creating a window component
 

@@ -2,7 +2,7 @@
 
 * [Vuido](README.md)
 * [Installation](installation/README.md)
-  * [Manual configuration](installation/single-file-components.md)
+  * [Manual configuration](installation/manual-configuration.md)
 * [Usage](usage.md)
 * [Common attributes](common-attributes.md)
 * Components
