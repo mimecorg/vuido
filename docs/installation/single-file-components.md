@@ -1,34 +1,33 @@
-# Single-file components
+# Manual configuration
 
-A single-file component for Vuido looks just like a regular Vue.js SFC, for example:
+This information is intended for advanced users who wish to configure a Vuido application manually. In most cases the automatic [quick setup](./#quick-setup) should be enough.
 
-```markup
-<template>
-  <Window title="Vuido Example" width="400" height="100" margined v-on:close="exit">
-    <Box horizontal padded>
-      <Text stretchy>Counter: {{ counter }}</Text>
-      <Button v-on:click="increment">Increment</Button>
-    </Box>
-  </Window>
-</template>
+You need to install the [vuido](https://www.npmjs.com/package/vuido) package in order to use Vuido in you application:
 
-<script>
-...
-</script>
+```bash
+npm install --save vuido
 ```
 
-You must bundle your application using [webpack](https://webpack.js.org/) in order to use single-file components. The simplest webpack configuration looks as follows:
+In order to use single-file components, you will also need [webpack](https://webpack.js.org/) and [vue-loader](https://vue-loader.vuejs.org/). The configuration is similar to a web application using Vue.js, with some important differences:
 
+* The [vuido-template-compiler](https://www.npmjs.com/package/vuido-template-compiler) must be used instead of the standard vue-template-compiler which is used by vue-loader by default. Use the `compiler` option to pass the Vuido compiler to vue-loader. Note that this option requires vue-loader v15 or newer.
+* Set the target option to 'node' to ensure that the compiled script can be run correctly by Node.js.
+* Use webpack.ExternalsPlugin to exclude libui-node and other native modules from the bundle.
+
+Example of webpack configuration using Vuido:
+
+{% code-tabs %}
+{% code-tabs-item title="webpack.config.js" %}
 ```javascript
-const path = require( 'path' );
-const webpack = require( 'webpack' );
-const VueLoaderPlugin = require( 'vue-loader/lib/plugin' );
-const VuidoTemplateCompiler = require( 'vuido-template-compiler' );
+const path = require('path');
+const webpack = require('webpack');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const VuidoTemplateCompiler = require('vuido-template-compiler');
 
 module.exports = {
   entry: './src/main.js',
   output: {
-    path: path.resolve( __dirname, '../dist' ),
+    path: path.resolve(__dirname, '../dist'),
     filename: 'bundle.js'
   }
   target: 'node',
@@ -49,16 +48,37 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: [ '.js', '.vue', '.json' ]
+    extensions: ['.js', '.vue', '.json']
   },
   plugins: [
-    new webpack.ExternalsPlugin( 'commonjs', [ 'libui-node' ] ),
+    new webpack.ExternalsPlugin('commonjs', ['libui-node']),
     new VueLoaderPlugin()
   ]
 };
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
-You must use at least version 15.0 of [vue-loader](https://github.com/vuejs/vue-loader) in order to be able to inject the Vuido template compiler. Otherwise it will use the standard Vue.js template compiler which is not compatible with Vuido.
+You also need to install [babel-core](https://www.npmjs.com/package/babel-core), [babel-loader](https://github.com/babel/babel-loader) and [babel-preset-env](https://www.npmjs.com/package/babel-preset-env).
 
-To ensure that the bundled script can be run correctly using Node.js, set the target to `'node'`. Also use the `ExternalsPlugin` to exclude libui-node and other native modules from the bundle.
+The basic Babel configuration which compiles the scripts for Node.js v8 looks like this:
+
+{% code-tabs %}
+{% code-tabs-item title=".babelrc" %}
+```javascript
+{
+  "presets": [
+    [ "env", {
+      "targets": {
+        "node": 8
+      },
+      "modules": false,
+      "useBuiltIns": true
+    } ]
+  ],
+  "comments": false
+}
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
