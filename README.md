@@ -110,7 +110,7 @@ To ensure that the bundled script can be run correctly using Node.js, set the ta
 
 ## Documentation
 
-There is no documentation yet. You can find an example Vuido application in the `example/` directory.
+You can find the documentation of Vuido at [vuido.mimec.org](https://vuido.mimec.org/).
 
 ## Acknowledgements
 
