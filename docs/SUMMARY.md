@@ -1,3 +1,5 @@
+# Summary
+
 * [Introduction](./README.md)
 * [Installation](./installation/README.md)
   * [Single-file components](./installation/single-file-components.md)
