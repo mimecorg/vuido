@@ -4,6 +4,7 @@ Static widget which displays simple text.
 
 ## Example
 
-```html
+```markup
 <Text>Hello, world!</Text>
 ```
+

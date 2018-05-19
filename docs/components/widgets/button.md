@@ -10,6 +10,7 @@ Called when the button is clicked.
 
 ## Example
 
-```html
+```markup
 <Button v-on:click="ok">OK</Button>
 ```
+

@@ -2,7 +2,7 @@
 
 You can use Vuido just like Vue.js:
 
-```js
+```javascript
 import libui from 'libui-node'
 import Vue from 'vuido'
 
@@ -20,3 +20,4 @@ libui.startLoop();
 ```
 
 Calling `$mount()` on the window component will create and show the window. This method should be called without parameters.
+
