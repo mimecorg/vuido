@@ -17,7 +17,7 @@ At the moment Vuido is in a very early stage of development. The first goal is t
 
 To use Vuido in your application, install it using the following command:
 
-```
+```bash
 npm install --save vuido
 ```
 
@@ -25,7 +25,7 @@ This also installs and compiles libui-node, so make sure you have installed its 
 
 You can use Vuido just like Vue.js:
 
-```
+```js
 import libui from 'libui-node'
 import Vue from 'vuido'
 
@@ -48,7 +48,7 @@ Calling `$mount()` on the window component will create and show the window. This
 
 A single-file component for Vuido looks just like a regular Vue.js SFC, for example:
 
-```
+```vue
 <template>
   <Window title="Vuido Example" width="400" height="100" margined v-on:close="exit">
     <Box horizontal padded>
@@ -65,7 +65,7 @@ A single-file component for Vuido looks just like a regular Vue.js SFC, for exam
 
 You must bundle your application using [webpack](https://webpack.js.org/) in order to use single-file components. The simplest webpack configuration looks as follows:
 
-```
+```js
 const path = require( 'path' );
 const webpack = require( 'webpack' );
 const VueLoaderPlugin = require( 'vue-loader/lib/plugin' );
