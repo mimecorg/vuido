@@ -7,110 +7,72 @@ Create native desktop applications for Windows, OS X and Linux using [Vue.js](ht
 
 ## Introduction
 
-Vuido makes it possible to create native desktop applications using Vue.js. It supports single-file components. Applications using Vuido can be run natively using Node.js on Windows, OS X and Linux, without using Electron.
+Vuido makes it possible to create lightweight, native desktop applications using Vue.js. Application using Vuido can run on Windows, OS X and Linux, using native GUI components, and don't require Electron.
 
-Vuido uses the [libui](https://github.com/andlabs/libui) library which provides native GUI components for each desktop platform, and the [libui-node](https://github.com/parro-it/libui-node) bindings for Node.js. It works with Vue.js libraries such as Vuex and it's compatible with standard Node.js packages.
+![](docs/.gitbook/assets/vuido-screenshot.png)
 
-At the moment Vuido is in a very early stage of development. The first goal is to implement all controls currently supported by libui and to write a documentation.
+Under the hood, Vuido uses the [libui](https://github.com/andlabs/libui) library which provides native GUI components for each desktop platform, and the [libui-node](https://github.com/parro-it/libui-node) bindings for Node.js.
 
-## Installation
+Vuido supports most of the standard Vue.js API and it's compatible with many Vue.js extensions, for example Vuex. Applications using Vuido can also use all standard Node.js modules and any packages compatible with Node.js.
 
-To use Vuido in your application, install it using the following command:
+## Prerequisites
+
+The following prerequisites are needed to compile [libui-node](https://github.com/parro-it/libui-node), which is used by Vuido.
+
+### Windows
+
+* [windows-build-tools](https://www.npmjs.com/package/windows-build-tools) or Visual Studio 2015
+* [Visual C++ Redistributable Package for Visual Studio 2013](https://www.microsoft.com/en-us/download/details.aspx?id=40784)
+
+### Linux
+
+If they are not provided by default in your distribution:
+
+* [build-essential](https://packages.ubuntu.com/xenial/build-essential)
+* [GTK+ 3](https://packages.ubuntu.com/source/xenial/gtk+3.0)
+
+### OS X
+
+* Xcode
+
+## Quick setup
+
+The easiest way to start using Vuido is to use [vue-cli](https://www.npmjs.com/package/vue-cli) to create the scaffolding of the project.
+
+First make sure that vue-cli is installed globally:
 
 ```bash
-npm install --save vuido
+npm install -g vue-cli
 ```
 
-This also installs and compiles libui-node, so make sure you have installed its [prerequisites](https://github.com/parro-it/libui-node/blob/master/readme.md#prerequisites).
+Run the following command to create the project \(replace `my-project` with the name of your project\):
 
-You can use Vuido just like Vue.js:
-
-```js
-import libui from 'libui-node'
-import Vue from 'vuido'
-
-import MainWindow from './components/MainWindow'
-
-const window = new Vue( {
-  render( h ) {
-    return h( MainWindow );
-  }
-} );
-
-window.$mount();
-
-libui.startLoop();
+```bash
+vue init mimecorg/vuido-webpack-template my-project
 ```
 
-Calling `$mount()` on the window component will create and show the window. This method should be called without parameters.
+Enter the directory created by vue-cli and install all dependencies:
 
-## Single-file components
-
-A single-file component for Vuido looks just like a regular Vue.js SFC, for example:
-
-```vue
-<template>
-  <Window title="Vuido Example" width="400" height="100" margined v-on:close="exit">
-    <Box horizontal padded>
-      <Text stretchy>Counter: {{ counter }}</Text>
-      <Button v-on:click="increment">Increment</Button>
-    </Box>
-  </Window>
-</template>
-
-<script>
-...
-</script>
+```bash
+cd my-project
+npm install
 ```
 
-You must bundle your application using [webpack](https://webpack.js.org/) in order to use single-file components. The simplest webpack configuration looks as follows:
+Now you can build and run your application:
 
-```js
-const path = require( 'path' );
-const webpack = require( 'webpack' );
-const VueLoaderPlugin = require( 'vue-loader/lib/plugin' );
-const VuidoTemplateCompiler = require( 'vuido-template-compiler' );
-
-module.exports = {
-  entry: './src/main.js',
-  output: {
-    path: path.resolve( __dirname, '../dist' ),
-    filename: 'bundle.js'
-  }
-  target: 'node',
-  module: {
-    rules: [
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          compiler: VuidoTemplateCompiler
-        }
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/
-      }
-    ]
-  },
-  resolve: {
-    extensions: [ '.js', '.vue', '.json' ]
-  },
-  plugins: [
-    new webpack.ExternalsPlugin( 'commonjs', [ 'libui-node' ] ),
-    new VueLoaderPlugin()
-  ]
-};
+```bash
+npm run build
+npm start
 ```
-
-You must use at least version 15.0 of [vue-loader](https://github.com/vuejs/vue-loader) in order to be able to inject the Vuido template compiler. Otherwise it will use the standard Vue.js template compiler which is not compatible with Vuido.
-
-To ensure that the bundled script can be run correctly using Node.js, set the target to `'node'`. Also use the `ExternalsPlugin` to exclude libui-node and other native modules from the bundle.
 
 ## Documentation
 
-You can find the documentation of Vuido at [vuido.mimec.org](https://vuido.mimec.org/).
+You can find the full documentation of Vuido at [vuido.mimec.org](https://vuido.mimec.org/).
+
+
+## Development status
+
+At the moment Vuido is in a very early stage of development. The main goal is to implement all remaining controls currently supported by libui.
 
 ## Acknowledgements
 
