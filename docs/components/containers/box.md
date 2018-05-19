@@ -28,9 +28,10 @@ Whether the child stretches to fill available space.
 
 ## Example
 
-```html
+```markup
 <Box horizontal padded>
   <Button v-on:click="ok">OK</Button>
   <Button v-on:click="cancel">Cancel</Button>
 </Box>
 ```
+
