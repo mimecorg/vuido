@@ -4,6 +4,6 @@ Static widget which displays simple text.
 
 ## Example
 
-```vue
+```html
 <Text>Hello, world!</Text>
 ```

@@ -44,7 +44,7 @@ Called when the close button is clicked. To exit the application, call `libui.st
 
 ## Example
 
-```vue
+```html
 <Window title="Vuido Example" width="400" height="100" margined v-on:close="exit">
   <Box padded>
     ...

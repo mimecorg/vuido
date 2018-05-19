@@ -10,6 +10,6 @@ Called when the button is clicked.
 
 ## Example
 
-```vue
+```html
 <Button v-on:click="ok">OK</Button>
 ```

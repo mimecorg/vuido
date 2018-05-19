@@ -2,7 +2,7 @@
 
 A single-file component for Vuido looks just like a regular Vue.js SFC, for example:
 
-```vue
+```html
 <template>
   <Window title="Vuido Example" width="400" height="100" margined v-on:close="exit">
     <Box horizontal padded>
