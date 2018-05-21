@@ -23,7 +23,7 @@ Here's a basic window component using Vuido:
 </template>
 
 <script>
-include libui from 'libui'
+import libui from 'libui'
 
 export default {
   data() {
