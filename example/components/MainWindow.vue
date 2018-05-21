@@ -1,5 +1,5 @@
 <template>
-  <Window title="Vuido Example" width="400" height="100" margined v-on:close="exit">
+  <Window title="Vuido Example" width="400" height="120" margined v-on:close="exit">
     <Box padded>
       <Box horizontal padded>
         <Button stretchy v-on:click="switchMode">Switch mode</Button>
@@ -14,6 +14,10 @@
         <Text stretchy>Value: {{ random }}</Text>
         <Button v-bind:enabled="enabled" v-on:click="randomize">Randomize</Button>
       </Box>
+      <Box horizontal padded>
+        <TextInput stretchy v-bind:value="text" v-on:input="text = $event"/>
+        <Text stretchy>{{ text }}</Text>
+      </Box>
     </Box>
   </Window>
 </template>
@@ -27,7 +31,8 @@ export default {
       counterMode: true,
       enabled: true,
       counter: 0,
-      random: 0
+      random: 0,
+      text: 'Edit me'
     };
   },
   methods: {
