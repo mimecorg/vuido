@@ -4,8 +4,9 @@ import { genStaticKeys } from 'shared/util'
 
 import { isUnaryTag, canBeLeftOpenTag, mustUseProp, isReservedTag, getTagNamespace } from '../util'
 
+import directives from './directives'
+
 const modules = [];
-const directives = [];
 
 const baseOptions = {
   modules,

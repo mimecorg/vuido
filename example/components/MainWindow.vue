@@ -15,7 +15,7 @@
         <Button v-bind:enabled="enabled" v-on:click="randomize">Randomize</Button>
       </Box>
       <Box horizontal padded>
-        <TextInput stretchy v-bind:value="text" v-on:input="text = $event"/>
+        <TextInput stretchy v-model="text"/>
         <Text stretchy>{{ text }}</Text>
       </Box>
     </Box>
