@@ -20,25 +20,28 @@ export class Checkbox extends Widget {
 
     if (this.attributes.text != '')
       this.widget.text = this.attributes.text;
-    if ( this.attributes.checked || this.attributes.checked == '' )
+    if (this.attributes.checked || this.attributes.checked == '')
       this.widget.checked = true;
   }
 
-  _setWidgetAttribute( key, value ) {
-    if ( key == 'text' ) {
-      if ( this.widget.text != value )
+  _setWidgetAttribute(key, value) {
+    if (key == 'text') {
+      if (this.widget.text != value)
         this.widget.text = value;
-    } else if ( key == 'checked' ) {
+    } else if (key == 'checked') {
       this.widget.checked = value;
     } else {
-      super._setWidgetAttribute( key, value );
+      super._setWidgetAttribute(key, value);
     }
   }
 
   _setWidgetHandler(event, handler) {
-    if (event == 'toggled')
-      this.widget.onToggled(handler);
-    else
+    if (event == 'toggled') {
+      this.widget.onToggled(() => {
+        handler(this.widget.checked);
+      });
+    } else {
       super._setWidgetHandler(event, handler);
+    }
   }
 }

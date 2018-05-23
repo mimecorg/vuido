@@ -1,6 +1,6 @@
 <template>
   <Window title="Vuido Control Gallery" width="640" height="480" margined v-on:close="exit">
-    <Box horizontal>
+    <Box horizontal padded>
       <Group title="Vuido Demo" margined>
         <Box padded>
           <Box horizontal padded>
@@ -38,8 +38,8 @@
             <Checkbox text="Checkbox 2" :enabled="!isChecked"/>
           </Box>
           <Box horizontal padded>
-            <Text stretchy>Label</Text>
-            <ColorButton @changed="onColorChanged" :color="color"/>
+            <Text stretchy>Color picker</Text>
+            <ColorButton @changed="onColorChanged" :color="color" stretchy/>
           </Box>
         </Box>
       </Group>
@@ -78,8 +78,8 @@
       randomize() {
         this.random = Math.floor(Math.random() * 1000);
       },
-      onToggled(){
-        this.isChecked = !this.isChecked;
+      onToggled(val){
+        this.isChecked = val;
       },
       onColorChanged(val) {
         this.color = val;
