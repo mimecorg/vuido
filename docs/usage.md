@@ -28,7 +28,7 @@ import libui from 'libui'
 export default {
   data() {
     return {
-      counter: 0;
+      counter: 0
     };
   },
   methods: {
