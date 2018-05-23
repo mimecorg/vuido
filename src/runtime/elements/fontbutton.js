@@ -22,7 +22,6 @@ export class FontButton extends Widget {
   }
 
   _setWidgetAttribute(key, value) {
-    console.log(key, value);
     if (key == 'value') {
       if (this.widget.font != value)
         this.widget.font = value;
