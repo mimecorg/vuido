@@ -9,6 +9,7 @@
   * [Window](components/window.md)
   * Containers
     * [Box](components/containers/box.md)
+    * [Group](components/containers/group.md)
   * Widgets
     * [Button](components/widgets/button.md)
     * [Text](components/widgets/text.md)
