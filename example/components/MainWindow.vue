@@ -41,6 +41,11 @@
             <Text stretchy>Color picker</Text>
             <ColorButton @changed="onColorChanged" :color="color" stretchy/>
           </Box>
+          <Box horizontal padded>
+            <DatePicker />
+            <TimePicker />
+            <DateTimePicker />
+          </Box>
         </Box>
       </Group>
     </Box>

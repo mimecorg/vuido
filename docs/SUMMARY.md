@@ -16,4 +16,7 @@
     * [Checkbox](components/widgets/checkbox.md)
     * [Text](components/widgets/text.md)
     * [TextInput](components/widgets/textinput.md)
+    * [DatePicker](components/widgets/datepicker.md)
+    * [TimePicker](components/widgets/timepicker.md)
+    * [DateTimePicker](components/widgets/datetimepicker.md)
 
