@@ -42,9 +42,13 @@
             <ColorButton @changed="onColorChanged" :color="color" stretchy/>
           </Box>
           <Box horizontal padded>
-            <DatePicker />
-            <TimePicker />
-            <DateTimePicker />
+            <DatePicker/>
+            <TimePicker/>
+            <DateTimePicker/>
+          </Box>
+          <Box horizontal padded>
+            <FontButton v-model="font" @changed="onFontChanged"/>
+            <Text>{{fontString}}</Text>
           </Box>
         </Box>
       </Group>
@@ -63,9 +67,18 @@
         counter: 0,
         random: 0,
         text: 'Edit me',
-        isChecked : true,
-        color: '#ffeeff'
+        isChecked: true,
+        color: '#ffeeff',
+        font: null
       };
+    },
+    created() {
+      this.font = new libui.FontDescriptor('Arial', 10, libui.textWeight.normal, libui.textItalic.normal, libui.textStretch.normal);
+    },
+    computed: {
+      fontString() {
+        return `Font: ${this.font.getFamily()}, Size: ${this.font.getSize()}, Weight: ${this.font.getWeight()} `;
+      }
     },
     methods: {
       switchMode() {
@@ -83,11 +96,14 @@
       randomize() {
         this.random = Math.floor(Math.random() * 1000);
       },
-      onToggled(val){
+      onToggled(val) {
         this.isChecked = val;
       },
       onColorChanged(val) {
         this.color = val;
+      },
+      onFontChanged(val) {
+        this.font = val;
       },
       exit() {
         libui.stopLoop();
