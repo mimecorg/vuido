@@ -1,4 +1,5 @@
 .vscode
+.idea
 dist/*.js
 example/dist/*.js
 node_modules
