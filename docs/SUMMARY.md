@@ -12,6 +12,7 @@
     * [Group](components/containers/group.md)
   * Widgets
     * [Button](components/widgets/button.md)
+    * [Checkbox](components/widgets/checkbox.md)
     * [Text](components/widgets/text.md)
     * [TextInput](components/widgets/textinput.md)
 
