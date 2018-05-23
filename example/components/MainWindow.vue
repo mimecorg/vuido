@@ -43,12 +43,15 @@
           </Box>
           <Box horizontal padded>
             <DatePicker/>
+            <Separator vertical/>
             <TimePicker/>
-            <DateTimePicker/>
+            <Separator vertical/>
+            <DateTimePicker stretchy/>
           </Box>
-          <Box horizontal padded>
+          <Box padded>
             <FontButton v-model="font" @changed="onFontChanged"/>
-            <Text>{{fontString}}</Text>
+            <Separator />
+            <Text stretchy>{{fontString}}</Text>
           </Box>
         </Box>
       </Group>

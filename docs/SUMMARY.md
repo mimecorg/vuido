@@ -19,5 +19,6 @@
     * [DatePicker](components/widgets/datepicker.md)
     * [TimePicker](components/widgets/timepicker.md)
     * [DateTimePicker](components/widgets/datetimepicker.md)
-    * [FontButton](components/widgets/fontbutton.md)
+    * [FontButton](components/widgets/fontbutton.md)    
+    * [Separator](components/widgets/separator.md)
 
