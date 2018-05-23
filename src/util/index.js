@@ -12,7 +12,7 @@ export function mustUseProp( tag, type, name ) {
   return false;
 }
 
-export const isReservedTag = makeMap( 'template,script,style,box,button,text,textinput,window', true );
+export const isReservedTag = makeMap( 'template,script,style,box,button,text,textarea,textinput,window', true );
 
 export function getTagNamespace( tag ) {
 }

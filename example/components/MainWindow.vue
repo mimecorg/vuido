@@ -1,5 +1,5 @@
 <template>
-  <Window title="Vuido Example" width="400" height="120" margined v-on:close="exit">
+  <Window title="Vuido Example" width="400" height="300" margined v-on:close="exit">
     <Box padded>
       <Box horizontal padded>
         <Button stretchy v-on:click="switchMode">Switch mode</Button>
@@ -18,6 +18,8 @@
         <TextInput stretchy v-model="text"/>
         <Text stretchy>{{ text }}</Text>
       </Box>
+      <TextArea stretchy v-model="multilineText"/>
+      <Text>Number of lines: {{ numberOfLines }}</Text>
     </Box>
   </Window>
 </template>
@@ -32,8 +34,14 @@ export default {
       enabled: true,
       counter: 0,
       random: 0,
-      text: 'Edit me'
+      text: 'Edit me',
+      multilineText: 'Edit me too'
     };
+  },
+  computed: {
+    numberOfLines() {
+      return this.multilineText.split( '\n' ).length;
+    }
   },
   methods: {
     switchMode() {
