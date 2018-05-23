@@ -1,8 +1,8 @@
-# TextInput
+# TextArea
 
-An input widget for editing a single line of text.
+An input widget for editing multiple lines of text.
 
-TextInput supports the `v-model` directive.
+TextArea supports the `v-model` directive.
 
 ## Attributes
 
@@ -11,12 +11,6 @@ TextInput supports the `v-model` directive.
 type: Boolean
 
 Whether the widget is read-only or editable.
-
-### type
-
-type: String
-
-One of: `text`, `password` or `search`. The default type is `text`.
 
 ### value
 
@@ -33,6 +27,6 @@ Called when the text is changed. The current text is passed as an argument.
 ## Example
 
 ```markup
-<TextInput v-model="text"/>
+<TextArea v-model="text"/>
 ```
 

@@ -12,5 +12,6 @@
   * Widgets
     * [Button](components/widgets/button.md)
     * [Text](components/widgets/text.md)
+    * [TextArea](components/widgets/textarea.md)
     * [TextInput](components/widgets/textinput.md)
 
