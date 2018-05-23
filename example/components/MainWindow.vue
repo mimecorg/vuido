@@ -50,8 +50,15 @@
           </Box>
           <Box padded>
             <FontButton v-model="font" @changed="onFontChanged"/>
-            <Separator />
             <Text stretchy>{{fontString}}</Text>
+            <Separator />
+          </Box>
+          <Box horizontal padded>
+            <ProgressBar :value="progress" stretchy/>
+            <Separator vertical/>
+            <Button @click="changeProgress(-10)">-10</Button>
+            <Button @click="changeProgress(10)">+10</Button>
+            <Button @click="changeProgress(1, true)">Infinity</Button>
           </Box>
         </Box>
       </Group>
@@ -69,6 +76,7 @@
         enabled: true,
         counter: 0,
         random: 0,
+        progress: 10,
         text: 'Edit me',
         isChecked: true,
         color: '#ffeeff',
@@ -107,6 +115,12 @@
       },
       onFontChanged(val) {
         this.font = val;
+      },
+      changeProgress(val, inf = false){
+        if(inf)
+          this.progress = -1;
+        else
+          this.progress = Math.min(Math.max(0, this.progress + val), 100);
       },
       exit() {
         libui.stopLoop();
