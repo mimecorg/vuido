@@ -1,5 +1,6 @@
 export * from './window'
 export * from './box'
+export * from './group'
 export * from './text'
 export * from './textinput'
 export * from './button'
