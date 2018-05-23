@@ -60,6 +60,9 @@
             <Button @click="changeProgress(10)">+10</Button>
             <Button @click="changeProgress(1, true)">Infinity</Button>
           </Box>
+          <Box padded>
+            <RadioButtons :items="radio.items" :selected="radio.selected"  @on-selected="onRadioSelected"/>
+          </Box>
         </Box>
       </Group>
     </Box>
@@ -80,7 +83,11 @@
         text: 'Edit me',
         isChecked: true,
         color: '#ffeeff',
-        font: null
+        font: null,
+        radio: {
+          items: ['Option 1', 'Option 2', 'Option 3'],
+          selected: 1
+        }
       };
     },
     created() {
@@ -121,6 +128,9 @@
           this.progress = -1;
         else
           this.progress = Math.min(Math.max(0, this.progress + val), 100);
+      },
+      onRadioSelected(val){
+        this.radio.selected = val;
       },
       exit() {
         libui.stopLoop();
