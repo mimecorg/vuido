@@ -6,7 +6,7 @@ export class FontButton extends Widget {
   getDefaultAttributes() {
     return {
       ...super._getDefaultAttributes(),
-      value: ''
+      font: ''
     };
   }
 
@@ -17,12 +17,12 @@ export class FontButton extends Widget {
   _initializeWidgetAttributes() {
     super._initializeWidgetAttributes();
 
-    if (this.attributes.value != '')
-      this.widget.font = this.attributes.value;
+    if (this.attributes.font != '')
+      this.widget.font = this.attributes.font;
   }
 
   _setWidgetAttribute(key, value) {
-    if (key == 'value') {
+    if (key == 'font') {
       if (this.widget.font != value)
         this.widget.font = value;
     } else {

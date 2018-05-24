@@ -51,7 +51,7 @@
             <DateTimePicker stretchy/>
           </Box>
           <Box padded>
-            <FontButton v-model="font" @changed="onFontChanged"/>
+            <FontButton :font="font" @changed="onFontChanged"/>
             <Text stretchy>{{fontString}}</Text>
             <Separator />
           </Box>
