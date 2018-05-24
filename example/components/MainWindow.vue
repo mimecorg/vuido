@@ -66,8 +66,16 @@
             <Slider stretchy min="0" max="100" :value="slider" @changed="onSliderChange"/>
             <Slider stretchy min="0" max="100" :value="slider" :enabled="false"/>
           </Box>
-          <Box padded>
+          <Box horizontal padded>
             <RadioButtons :items="radio.items" :selected="radio.selected"  @on-selected="onRadioSelected"/>
+            <Text>Selected index: {{radio.selected}}</Text>
+          </Box>
+          <Box>
+            <Tab>
+              <TextInput label="Tab 1" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit"/>
+              <TextInput label="Tab 2" value="Sed ut perspiciatis unde omnis iste natus error sit voluptatem"/>
+              <TextInput label="Tab 3" value="Ut enim ad minima veniam"/>
+            </Tab>
           </Box>
         </Box>
       </Group>

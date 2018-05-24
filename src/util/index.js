@@ -12,7 +12,7 @@ export function mustUseProp( tag, type, name ) {
   return false;
 }
 
-export const isReservedTag = makeMap( 'template,script,style,box,group,button,colorbutton,fontbutton,text,textarea,textinput,checkbox,datepicker,timepicker,datetimepicker,progressbar,slider,radiobuttons,separator,window', true );
+export const isReservedTag = makeMap( 'template,script,style,box,group,button,colorbutton,fontbutton,text,textarea,textinput,checkbox,datepicker,timepicker,datetimepicker,progressbar,slider,radiobuttons,separator,tab,window', true );
 
 export function getTagNamespace( tag ) {
 }

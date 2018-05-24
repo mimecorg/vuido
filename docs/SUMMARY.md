@@ -10,6 +10,7 @@
   * Containers
     * [Box](components/containers/box.md)
     * [Group](components/containers/group.md)
+    * [Tab](components/containers/tab.md)
   * Widgets
     * [Button](components/widgets/button.md)
     * [ColorButton](components/widgets/colorbutton.md)
@@ -24,5 +25,5 @@
     * [Separator](components/widgets/separator.md)
     * [ProgressBar](components/widgets/progressbar.md)
     * [Slider](components/widgets/slider.md)
-    * [RadioButtons](components/widgets/radiobuttons.md)
+    * [RadioButtons](components/widgets/radiobuttons.md)    
 
