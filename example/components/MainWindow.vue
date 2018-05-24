@@ -62,6 +62,10 @@
             <Button @click="changeProgress(10)">+10</Button>
             <Button @click="changeProgress(1, true)">Infinity</Button>
           </Box>
+          <Box horizontal padded>
+            <Slider stretchy min="0" max="100" :value="slider" @changed="onSliderChange"/>
+            <Slider stretchy min="0" max="100" :value="slider" :enabled="false"/>
+          </Box>
           <Box padded>
             <RadioButtons :items="radio.items" :selected="radio.selected"  @on-selected="onRadioSelected"/>
           </Box>
@@ -82,6 +86,7 @@
         counter: 0,
         random: 0,
         progress: 10,
+        slider: 40,
         text: 'Edit me',
         multilineText: 'Edit me too',
         isChecked: true,
@@ -137,6 +142,9 @@
       },
       onRadioSelected(val){
         this.radio.selected = val;
+      },
+      onSliderChange(val){
+        this.slider = val;
       },
       exit() {
         libui.stopLoop();

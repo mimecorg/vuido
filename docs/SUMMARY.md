@@ -23,5 +23,6 @@
     * [FontButton](components/widgets/fontbutton.md)    
     * [Separator](components/widgets/separator.md)
     * [ProgressBar](components/widgets/progressbar.md)
+    * [Slider](components/widgets/slider.md)
     * [RadioButtons](components/widgets/radiobuttons.md)
 
