@@ -23,12 +23,12 @@ Here's a basic window component using Vuido:
 </template>
 
 <script>
-import libui from 'libui'
+import libui from 'libui-node'
 
 export default {
   data() {
     return {
-      counter: 0;
+      counter: 0
     };
   },
   methods: {

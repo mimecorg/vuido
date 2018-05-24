@@ -20,6 +20,8 @@
             <TextInput stretchy v-model="text"/>
             <Text stretchy>{{ text }}</Text>
           </Box>
+          <TextArea stretchy v-model="multilineText"/>
+          <Text>Number of lines: {{ numberOfLines }}</Text>
         </Box>
       </Group>
 
@@ -81,6 +83,7 @@
         random: 0,
         progress: 10,
         text: 'Edit me',
+        multilineText: 'Edit me too',
         isChecked: true,
         color: '#ffeeff',
         font: null,
@@ -94,6 +97,9 @@
       this.font = new libui.FontDescriptor('Arial', 10, libui.textWeight.normal, libui.textItalic.normal, libui.textStretch.normal);
     },
     computed: {
+      numberOfLines() {
+        return this.multilineText.split( '\n' ).length;
+      },
       fontString() {
         return `Font: ${this.font.getFamily()}, Size: ${this.font.getSize()}, Weight: ${this.font.getWeight()} `;
       }

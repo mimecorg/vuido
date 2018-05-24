@@ -6,7 +6,7 @@ import { isReservedTag } from '../../util'
 export default function model( el, dir, _warn ) {
   if ( el.component != null || !isReservedTag( el.tag ) )
     genComponentModel( el, dir.value, dir.modifiers );
-  else if ( el.tag == 'TextInput' )
+  else if ( el.tag == 'TextInput' || el.tag == 'TextArea' )
     genDefaultModel( el, dir.value, dir.modifiers );
   else if ( process.env.NODE_ENV != 'production' )
     _warn( el.tag + ' does not support v-model' );

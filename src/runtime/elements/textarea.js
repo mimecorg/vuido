@@ -2,25 +2,17 @@ import libui from 'libui-node'
 
 import { Widget } from './widget'
 
-export class TextInput extends Widget {
+export class TextArea extends Widget {
   _getDefaultAttributes() {
     return {
       ...super._getDefaultAttributes(),
-      type: 'text',
       value: '',
       readonly: false
     };
   }
 
   _createWidget() {
-    if ( this.attributes.type == 'text' )
-      this.widget = new libui.UiEntry();
-    else if ( this.attributes.type == 'password' )
-      this.widget = new libui.UiPasswordEntry();
-    else if ( this.attributes.type == 'search' )
-      this.widget = new libui.UiSearchEntry();
-    else
-      throw new Error( 'Invalid TextInput type ' + this.attributes.type );
+    this.widget = new libui.UiMultilineEntry();
   }
 
   _initializeWidgetAttributes() {

@@ -15,6 +15,7 @@
     * [ColorButton](components/widgets/colorbutton.md)
     * [Checkbox](components/widgets/checkbox.md)
     * [Text](components/widgets/text.md)
+    * [TextArea](components/widgets/textarea.md)
     * [TextInput](components/widgets/textinput.md)
     * [DatePicker](components/widgets/datepicker.md)
     * [TimePicker](components/widgets/timepicker.md)
