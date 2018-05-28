@@ -8,6 +8,8 @@ export class Window extends Element {
     super( tagName );
 
     this.window = null;
+
+    this.showHandler = null;
   }
 
   appendChild( childNode ) {
@@ -76,6 +78,9 @@ export class Window extends Element {
       this.window.setChild( this.childNodes[ 0 ].widget );
     }
 
+    if ( this.showHandler != null )
+      this.showHandler();
+
     this.window.show();
   }
 
@@ -93,6 +98,8 @@ export class Window extends Element {
   _setWindowHandler( event, handler ) {
     if ( event == 'close' )
       this.window.onClosing( handler );
+    else if ( event == 'show' )
+      this.showHandler = handler;
     else
       throw new Error( 'Window does not have event ' + event );
   }

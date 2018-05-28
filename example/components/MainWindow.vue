@@ -1,5 +1,5 @@
 <template>
-  <Window title="Vuido Demo" width="1000" height="400" margined v-on:close="exit">
+  <Window title="Vuido Demo" width="1000" height="400" margined v-on:show="show" v-on:close="exit">
     <Box horizontal padded>
       <Group stretchy title="Input Widgets" margined>
         <Box padded>
@@ -20,7 +20,7 @@
             <TextInput stretchy v-bind:value="colorString" readonly/>
           </Box>
           <Box horizontal padded>
-            <FontButton stretchy v-on:change="font = $event"/>
+            <FontButton ref="fontButton" stretchy v-on:change="font = $event"/>
             <TextInput stretchy v-bind:value="fontString" readonly/>
           </Box>
         </Box>
@@ -103,6 +103,9 @@
       }
     },
     methods: {
+      show() {
+        this.font = this.$refs.fontButton.font;
+      },
       changeProgress( step ){
         this.progress = Math.min( Math.max( 0, this.progress + step ), 100 );
       },
