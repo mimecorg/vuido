@@ -81,7 +81,8 @@ export class Widget extends Element {
     return {
       visible: true,
       enabled: true,
-      stretchy: false
+      stretchy: false,
+      label: ''
     };
   }
 
@@ -101,9 +102,8 @@ export class Widget extends Element {
       throw new Error( this.tagName + ' cannot contain ' + childNode.tagName + ' elements' );
 
     childNode._mountWidget();
-    this._appendWidget( childNode );
-
     childNode.widgetIndex = this.childNodes.indexOf( childNode );
+    this._appendWidget( childNode );
   }
 
   _insertElement( childNode, index ) {
@@ -116,16 +116,23 @@ export class Widget extends Element {
         this._removeWidget( tailNode );
     }
 
+    let widgetIndex = 0;
+    for ( let i = 0; i < index; i++ ) {
+      if ( this.childNodes[ i ] instanceof Widget )
+        widgetIndex++;
+    }
+
     childNode._mountWidget();
+    childNode.widgetIndex = widgetIndex++;
     this._appendWidget( childNode );
 
     for ( let i = index + 1; i < this.childNodes.length; i++ ) {
       const tailNode = this.childNodes[ i ];
-      if ( tailNode instanceof Element )
+      if ( tailNode instanceof Element ) {
+        tailNode.widgetIndex = widgetIndex++;
         this._appendWidget( tailNode );
+      }
     }
-
-    this._reindexChildWidgets();
   }
 
   _removeElement( childNode ) {

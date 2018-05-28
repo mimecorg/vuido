@@ -59,7 +59,7 @@
             <DateTimePicker/>
           </Box>
           <Separator horizontal/>
-          <Tab stretchy>
+          <Tab stretchy margined>
             <Box label="Tab 1">
               <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
             </Box>

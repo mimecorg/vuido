@@ -5,7 +5,8 @@ import { Widget } from './widget'
 export class Tab extends Widget {
   _getDefaultAttributes() {
     return {
-      ...super._getDefaultAttributes()
+      ...super._getDefaultAttributes(),
+      margined: false
     };
   }
 
@@ -14,7 +15,10 @@ export class Tab extends Widget {
   }
 
   _appendWidget( childNode ) {
-    this.widget.append( childNode.attributes.label || 'Tab', childNode.widget );
+    this.widget.append( childNode.attributes.label, childNode.widget );
+
+    if ( this.attributes.margined )
+      this.widget.setMargined( childNode.widgetIndex, true );
   }
 
   _removeWidget( childNode ) {
