@@ -12,8 +12,8 @@
             <TextArea stretchy v-model="multilineText" readonly/>
           </Box>
           <Box horizontal padded>
-            <Slider stretchy min="0" max="100" v-bind:value="slider" v-on:changed="slider = $event"/>
-            <Slider stretchy min="0" max="100" v-bind:value="slider" v-bind:enabled="false"/>
+            <Slider stretchy min="0" max="100" v-model="slider"/>
+            <Slider stretchy min="0" max="100" v-model="slider" v-bind:enabled="false"/>
           </Box>
           <Box horizontal padded>
             <ColorButton stretchy v-model="color"/>
