@@ -7,12 +7,14 @@ export default function model( el, dir, _warn ) {
   if ( el.component != null || !isReservedTag( el.tag ) )
     genComponentModel( el, dir.value, dir.modifiers );
   else if ( el.tag == 'TextInput' || el.tag == 'TextArea' )
-    genDefaultModel( el, dir.value, dir.modifiers );
+    genDefaultModel( el, dir.value, dir.modifiers, 'value', 'input' );
+  else if ( el.tag == 'ColorButton' )
+    genDefaultModel( el, dir.value, dir.modifiers, 'value', 'change' );
   else if ( process.env.NODE_ENV != 'production' )
     _warn( el.tag + ' does not support v-model' );
 }
 
-function genDefaultModel( el, value, modifiers ) {
+function genDefaultModel( el, value, modifiers, attr, event ) {
   const { trim, number } = modifiers || {};
 
   let valueExpression = '$event';
@@ -23,6 +25,6 @@ function genDefaultModel( el, value, modifiers ) {
 
   const code = genAssignmentCode( value, valueExpression );
 
-  addAttr( el, 'value', '(' + value + ')' );
-  addHandler( el, 'input', code, null, true );
+  addAttr( el, attr, '(' + value + ')' );
+  addHandler( el, event, code, null, true );
 }

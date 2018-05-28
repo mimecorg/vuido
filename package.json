@@ -31,7 +31,6 @@
   },
   "homepage": "https://github.com/mimecorg/vuido",
   "dependencies": {
-    "color": "^3.0.0",
     "libui-node": "^0.2.0"
   },
   "devDependencies": {

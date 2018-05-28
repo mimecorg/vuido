@@ -16,8 +16,8 @@
             <Slider stretchy min="0" max="100" v-bind:value="slider" v-bind:enabled="false"/>
           </Box>
           <Box horizontal padded>
-            <ColorButton stretchy v-bind:color="color" v-on:changed="color = $event"/>
-            <TextInput stretchy v-bind:value="color" readonly/>
+            <ColorButton stretchy v-model="color"/>
+            <TextInput stretchy v-bind:value="colorString" readonly/>
           </Box>
           <Box horizontal padded>
             <FontButton stretchy v-bind:font="font" v-on:changed="font = $event"/>
@@ -85,7 +85,7 @@
         text: 'Text input',
         multilineText: 'Text area',
         slider: 40,
-        color: '#00af82',
+        color: new libui.Color( 0, 175 / 255, 130 / 255, 1 ),
         font: new libui.FontDescriptor( 'Arial', 10, libui.textWeight.normal, libui.textItalic.normal, libui.textStretch.normal ),
         enabled: true,
         visible: true,
@@ -94,6 +94,9 @@
       };
     },
     computed: {
+      colorString() {
+        return 'R: ' + Math.floor( this.color.r * 255 ) + ', G: ' + Math.floor( this.color.g * 255 ) + ', B: ' + Math.floor( this.color.b * 255 ) + ', A: ' + Math.floor( this.color.a * 255 );
+      },
       fontString() {
         return this.font.getFamily() + ' ' + this.font.getSize() + ', weight=' + this.font.getWeight() + ', italic=' + this.font.getItalic() + ', stretch=' + this.font.getStretch();
       }
