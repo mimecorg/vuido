@@ -36,7 +36,7 @@
           </Box>
           <Separator horizontal/>
           <Box horizontal padded>
-            <RadioButtons stretchy v-bind:items="[ 'Button', 'Text input', 'Text' ]" v-bind:selected="radio" v-on:on-selected="radio = $event"/>
+            <RadioButtons stretchy v-bind:items="[ 'Button', 'Text input', 'Text' ]" v-model="radio"/>
             <Box stretchy>
               <Button v-if="radio == 0">Button</Button>
               <TextInput v-else-if="radio == 1" v-model="text"/>

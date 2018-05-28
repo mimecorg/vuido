@@ -7,7 +7,6 @@ export class Widget extends Element {
 
     this.widget = null;
     this.widgetIndex = null;
-
   }
 
   appendChild( childNode ) {
