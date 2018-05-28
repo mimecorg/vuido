@@ -6,15 +6,14 @@ export class Separator extends Widget {
   _getDefaultAttributes() {
     return {
       ...super._getDefaultAttributes(),
-      vertical: false
+      horizontal: false
     };
   }
 
   _createWidget() {
-    if ( this.attributes.vertical )
-      this.widget = new libui.UiVerticalSeparator();
-    else
+    if ( this.attributes.horizontal )
       this.widget = new libui.UiHorizontalSeparator();
+    else
+      this.widget = new libui.UiVerticalSeparator();
   }
-
 }

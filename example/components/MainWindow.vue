@@ -34,7 +34,7 @@
             </Box>
             <Button stretchy v-bind:enabled="enabled" v-bind:visible="visible">Button</Button>
           </Box>
-          <Separator/>
+          <Separator horizontal/>
           <Box horizontal padded>
             <RadioButtons stretchy v-bind:items="[ 'Button', 'Text input', 'Text' ]" v-bind:selected="radio" v-on:on-selected="radio = $event"/>
             <Box stretchy>
@@ -43,22 +43,22 @@
               <Text v-else>Text</Text>
             </Box>
           </Box>
-          <Separator/>
+          <Separator horizontal/>
           <Box horizontal padded>
             <Button v-on:click="changeProgress( -10 )">Decrease</Button>
             <Button v-on:click="changeProgress( 10 )">Increase</Button>
             <Button v-on:click="progress = -1">Infinity</Button>
           </Box>
           <ProgressBar v-bind:value="progress"/>
-          <Separator/>
+          <Separator horizontal/>
           <Box horizontal padded>
             <DatePicker/>
-            <Separator vertical/>
+            <Separator/>
             <TimePicker/>
-            <Separator vertical/>
+            <Separator/>
             <DateTimePicker/>
           </Box>
-          <Separator/>
+          <Separator horizontal/>
           <Tab stretchy>
             <Box label="Tab 1">
               <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>

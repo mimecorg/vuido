@@ -21,4 +21,4 @@ export function isUnknownElement( tag ) {
   return false;
 }
 
-export const isBooleanAttr = makeMap( 'visible,enabled,stretchy,margined,padded,checked,horizontal,vertical,readonly' );
+export const isBooleanAttr = makeMap( 'visible,enabled,stretchy,margined,padded,checked,horizontal,readonly' );
