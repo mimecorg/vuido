@@ -1,82 +1,75 @@
 <template>
-  <Window title="Vuido Control Gallery" width="640" height="480" margined v-on:close="exit">
+  <Window title="Vuido Demo" width="1000" height="400" margined v-on:close="exit">
     <Box horizontal padded>
-      <Group title="Vuido Demo" margined>
+      <Group stretchy title="Input Widgets" margined>
         <Box padded>
           <Box horizontal padded>
-            <Button stretchy @click="switchMode">Switch mode</Button>
-            <Button stretchy @click="toggleEnabled">Toggle enabled</Button>
+            <TextInput stretchy v-model="text"/>
+            <TextInput stretchy v-model="text" readonly/>
           </Box>
-          <Box v-if="counterMode" horizontal padded>
-            <Text stretchy>Counter: {{ counter }}</Text>
-            <Button :enabled="enabled" @click="decrement">Decrement</Button>
-            <Button :enabled="enabled" @click="increment">Increment</Button>
-          </Box>
-          <Box v-else horizontal padded>
-            <Text stretchy>Value: {{ random }}</Text>
-            <Button :enabled="enabled" @click="randomize">Randomize</Button>
+          <Box stretchy horizontal padded>
+            <TextArea stretchy v-model="multilineText"/>
+            <TextArea stretchy v-model="multilineText" readonly/>
           </Box>
           <Box horizontal padded>
-            <TextInput stretchy v-model="text"/>
-            <Text stretchy>{{ text }}</Text>
+            <Slider stretchy min="0" max="100" v-bind:value="slider" v-on:changed="slider = $event"/>
+            <Slider stretchy min="0" max="100" v-bind:value="slider" v-bind:enabled="false"/>
           </Box>
-          <TextArea stretchy v-model="multilineText"/>
-          <Text>Number of lines: {{ numberOfLines }}</Text>
+          <Box horizontal padded>
+            <ColorButton stretchy v-bind:color="color" v-on:changed="color = $event"/>
+            <TextInput stretchy v-bind:value="color" readonly/>
+          </Box>
+          <Box horizontal padded>
+            <FontButton stretchy v-bind:font="font" v-on:changed="font = $event"/>
+            <TextInput stretchy v-bind:value="fontString" readonly/>
+          </Box>
         </Box>
       </Group>
-
-      <Group title="Basic Controls" margined>
+      <Group title="Miscellaneous" margined>
         <Box padded>
           <Box horizontal padded>
-            <Button stretchy>Button enabled</Button>
-            <Button stretchy :enabled="false">Button disabled</Button>
+            <Box stretchy horizontal padded>
+              <Checkbox text="Enabled" v-bind:checked="enabled" v-on:toggled="enabled = $event"/>
+              <Checkbox text="Visible" v-bind:checked="visible" v-on:toggled="visible = $event"/>
+            </Box>
+            <Button stretchy v-bind:enabled="enabled" v-bind:visible="visible">Button</Button>
           </Box>
+          <Separator/>
           <Box horizontal padded>
-            <TextInput stretchy v-model="text"/>
-            <TextInput stretchy v-model="text" :enabled="false"/>
+            <RadioButtons stretchy v-bind:items="[ 'Button', 'Text input', 'Text' ]" v-bind:selected="radio" v-on:on-selected="radio = $event"/>
+            <Box stretchy>
+              <Button v-if="radio == 0">Button</Button>
+              <TextInput v-else-if="radio == 1" v-model="text"/>
+              <Text v-else>Text</Text>
+            </Box>
           </Box>
+          <Separator/>
           <Box horizontal padded>
-            <Checkbox text="Checkbox 1" @toggled="onToggled" checked/>
-            <Checkbox text="Checkbox 2" :enabled="!isChecked"/>
+            <Button v-on:click="changeProgress( -10 )">Decrease</Button>
+            <Button v-on:click="changeProgress( 10 )">Increase</Button>
+            <Button v-on:click="progress = -1">Infinity</Button>
           </Box>
-          <Box horizontal padded>
-            <Text stretchy>Color picker</Text>
-            <ColorButton @changed="onColorChanged" :color="color" stretchy/>
-          </Box>
+          <ProgressBar v-bind:value="progress"/>
+          <Separator/>
           <Box horizontal padded>
             <DatePicker/>
             <Separator vertical/>
             <TimePicker/>
             <Separator vertical/>
-            <DateTimePicker stretchy/>
+            <DateTimePicker/>
           </Box>
-          <Box padded>
-            <FontButton :font="font" @changed="onFontChanged"/>
-            <Text stretchy>{{fontString}}</Text>
-            <Separator />
-          </Box>
-          <Box horizontal padded>
-            <ProgressBar :value="progress" stretchy/>
-            <Separator vertical/>
-            <Button @click="changeProgress(-10)">-10</Button>
-            <Button @click="changeProgress(10)">+10</Button>
-            <Button @click="changeProgress(1, true)">Infinity</Button>
-          </Box>
-          <Box horizontal padded>
-            <Slider stretchy min="0" max="100" :value="slider" @changed="onSliderChange"/>
-            <Slider stretchy min="0" max="100" :value="slider" :enabled="false"/>
-          </Box>
-          <Box horizontal padded>
-            <RadioButtons :items="radio.items" :selected="radio.selected"  @on-selected="onRadioSelected"/>
-            <Text>Selected index: {{radio.selected}}</Text>
-          </Box>
-          <Box>
-            <Tab>
-              <TextInput label="Tab 1" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit"/>
-              <TextInput label="Tab 2" value="Sed ut perspiciatis unde omnis iste natus error sit voluptatem"/>
-              <TextInput label="Tab 3" value="Ut enim ad minima veniam"/>
-            </Tab>
-          </Box>
+          <Separator/>
+          <Tab stretchy>
+            <Box label="Tab 1">
+              <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
+            </Box>
+            <Box label="Tab 2">
+              <Text>Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</Text>
+            </Box>
+            <Box label="Tab 3">
+              <Text>Ut enim ad minima veniam.</Text>
+            </Box>
+          </Tab>
         </Box>
       </Group>
     </Box>
@@ -89,70 +82,25 @@
   export default {
     data() {
       return {
-        counterMode: true,
-        enabled: true,
-        counter: 0,
-        random: 0,
-        progress: 10,
+        text: 'Text input',
+        multilineText: 'Text area',
         slider: 40,
-        text: 'Edit me',
-        multilineText: 'Edit me too',
-        isChecked: true,
-        color: '#ffeeff',
-        font: null,
-        radio: {
-          items: ['Option 1', 'Option 2', 'Option 3'],
-          selected: 1
-        }
+        color: '#00af82',
+        font: new libui.FontDescriptor( 'Arial', 10, libui.textWeight.normal, libui.textItalic.normal, libui.textStretch.normal ),
+        enabled: true,
+        visible: true,
+        radio: 0,
+        progress: 10
       };
     },
-    created() {
-      this.font = new libui.FontDescriptor('Arial', 10, libui.textWeight.normal, libui.textItalic.normal, libui.textStretch.normal);
-    },
     computed: {
-      numberOfLines() {
-        return this.multilineText.split( '\n' ).length;
-      },
       fontString() {
-        return `Font: ${this.font.getFamily()}, Size: ${this.font.getSize()}, Weight: ${this.font.getWeight()} `;
+        return this.font.getFamily() + ' ' + this.font.getSize() + ', weight=' + this.font.getWeight() + ', italic=' + this.font.getItalic() + ', stretch=' + this.font.getStretch();
       }
     },
     methods: {
-      switchMode() {
-        this.counterMode = !this.counterMode;
-      },
-      toggleEnabled() {
-        this.enabled = !this.enabled;
-      },
-      increment() {
-        this.counter++;
-      },
-      decrement() {
-        this.counter--;
-      },
-      randomize() {
-        this.random = Math.floor(Math.random() * 1000);
-      },
-      onToggled(val) {
-        this.isChecked = val;
-      },
-      onColorChanged(val) {
-        this.color = val;
-      },
-      onFontChanged(val) {
-        this.font = val;
-      },
-      changeProgress(val, inf = false){
-        if(inf)
-          this.progress = -1;
-        else
-          this.progress = Math.min(Math.max(0, this.progress + val), 100);
-      },
-      onRadioSelected(val){
-        this.radio.selected = val;
-      },
-      onSliderChange(val){
-        this.slider = val;
+      changeProgress( step ){
+        this.progress = Math.min( Math.max( 0, this.progress + step ), 100 );
       },
       exit() {
         libui.stopLoop();
