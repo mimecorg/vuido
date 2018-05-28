@@ -6,7 +6,6 @@ export class Checkbox extends Widget {
   getDefaultAttributes() {
     return {
       ...super._getDefaultAttributes(),
-      text: '',
       checked: false
     };
   }
@@ -18,30 +17,30 @@ export class Checkbox extends Widget {
   _initializeWidgetAttributes() {
     super._initializeWidgetAttributes();
 
-    if (this.attributes.text != '')
-      this.widget.text = this.attributes.text;
-    if (this.attributes.checked || this.attributes.checked == '')
+    if ( this.attributes.checked )
       this.widget.checked = true;
   }
 
   _setWidgetAttribute(key, value) {
-    if (key == 'text') {
-      if (this.widget.text != value)
-        this.widget.text = value;
-    } else if (key == 'checked') {
-      this.widget.checked = value;
+    if ( key == 'checked' ) {
+      if ( this.widget.checked != value )
+        this.widget.checked = value;
     } else {
-      super._setWidgetAttribute(key, value);
+      super._setWidgetAttribute( key, value );
     }
   }
 
-  _setWidgetHandler(event, handler) {
-    if (event == 'toggled') {
-      this.widget.onToggled(() => {
-        handler(this.widget.checked);
-      });
+  _setWidgetHandler( event, handler ) {
+    if ( event == 'toggle' ) {
+      this.widget.onToggled( () => {
+        handler( this.widget.checked );
+      } );
     } else {
       super._setWidgetHandler(event, handler);
     }
+  }
+
+  _setWidgetText( text ) {
+    this.widget.text = text;
   }
 }

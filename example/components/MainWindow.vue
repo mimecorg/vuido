@@ -29,8 +29,8 @@
         <Box padded>
           <Box horizontal padded>
             <Box stretchy horizontal padded>
-              <Checkbox text="Enabled" v-bind:checked="enabled" v-on:toggled="enabled = $event"/>
-              <Checkbox text="Visible" v-bind:checked="visible" v-on:toggled="visible = $event"/>
+              <Checkbox v-model="enabled">Enabled</Checkbox>
+              <Checkbox v-model="visible">Visible</Checkbox>
             </Box>
             <Button stretchy v-bind:enabled="enabled" v-bind:visible="visible">Button</Button>
           </Box>

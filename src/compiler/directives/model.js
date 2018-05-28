@@ -10,6 +10,8 @@ export default function model( el, dir, _warn ) {
     genDefaultModel( el, dir.value, dir.modifiers, 'value', 'input' );
   else if ( el.tag == 'ColorButton' )
     genDefaultModel( el, dir.value, dir.modifiers, 'value', 'change' );
+  else if ( el.tag == 'Checkbox' )
+    genDefaultModel( el, dir.value, dir.modifiers, 'checked', 'toggle' );
   else if ( process.env.NODE_ENV != 'production' )
     _warn( el.tag + ' does not support v-model' );
 }
