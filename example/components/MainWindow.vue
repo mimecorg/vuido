@@ -12,6 +12,14 @@
             <TextArea stretchy v-model="multilineText" readonly/>
           </Box>
           <Box horizontal padded>
+            <DropdownList stretchy v-bind:items="items" v-model="dropdown"/>
+            <TextInput stretchy v-bind:value="items[ dropdown ]" readonly/>
+          </Box>
+          <Box horizontal padded>
+            <Combobox stretchy v-bind:items="items" v-model="combobox"/>
+            <TextInput stretchy v-bind:value="combobox" readonly/>
+          </Box>
+          <Box horizontal padded>
             <Slider stretchy min="0" max="100" v-model="slider"/>
             <Slider stretchy min="0" max="100" v-model="slider" v-bind:enabled="false"/>
           </Box>
@@ -84,6 +92,9 @@
       return {
         text: 'Text input',
         multilineText: 'Text area',
+        items: [ 'One', 'Two', 'Three', 'Four', 'Five' ],
+        dropdown: 0,
+        combobox: 'One',
         slider: 40,
         color: new libui.Color( 0, 175 / 255, 130 / 255, 1 ),
         font: null,
