@@ -20,6 +20,10 @@
             <TextInput stretchy v-bind:value="combobox" readonly/>
           </Box>
           <Box horizontal padded>
+            <Spinbox stretchy min="0" max="100" v-model="spinbox"/>
+            <TextInput stretchy v-bind:value="spinbox" readonly/>
+          </Box>
+          <Box horizontal padded>
             <Slider stretchy min="0" max="100" v-model="slider"/>
             <Slider stretchy min="0" max="100" v-model="slider" v-bind:enabled="false"/>
           </Box>
@@ -92,9 +96,10 @@
       return {
         text: 'Text input',
         multilineText: 'Text area',
-        items: [ 'One', 'Two', 'Three', 'Four', 'Five' ],
+        items: [ 'Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5' ],
         dropdown: 0,
-        combobox: 'One',
+        combobox: 'Combobox',
+        spinbox: 30,
         slider: 40,
         color: new libui.Color( 0, 175 / 255, 130 / 255, 1 ),
         font: null,

@@ -8,7 +8,7 @@ export default function model( el, dir, _warn ) {
     genComponentModel( el, dir.value, dir.modifiers );
   else if ( el.tag == 'TextInput' || el.tag == 'TextArea' || el.tag == 'Combobox' )
     genDefaultModel( el, dir.value, dir.modifiers, 'value', 'input' );
-  else if ( el.tag == 'ColorButton' || el.tag == 'Slider' )
+  else if ( el.tag == 'ColorButton' || el.tag == 'Slider' || el.tag == 'Spinbox' )
     genDefaultModel( el, dir.value, dir.modifiers, 'value', 'change' );
   else if ( el.tag == 'Checkbox' )
     genDefaultModel( el, dir.value, dir.modifiers, 'checked', 'toggle' );

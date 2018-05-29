@@ -13,7 +13,7 @@ export function mustUseProp( tag, type, name ) {
 }
 
 export const isReservedTag = makeMap( 'template,script,style,box,button,checkbox,colorbutton,combobox,datepicker,datetimepicker,dropdownlist,'
-  + 'fontbutton,group,progressbar,radiobuttons,separator,slider,tab,text,textarea,textinput,timepicker,window', true );
+  + 'fontbutton,group,progressbar,radiobuttons,separator,slider,spinbox,tab,text,textarea,textinput,timepicker,window', true );
 
 export function getTagNamespace( tag ) {
 }
