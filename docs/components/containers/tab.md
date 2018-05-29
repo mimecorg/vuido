@@ -1,16 +1,40 @@
 # Tab
 
-A container that show each chidren in a separate tab.
+A container that shows each child widget in a separate tab.
 
-Each child is required to have a label prop that is displayed at the top and names the tab.
+The tab container can contain one or more children, typically other containers.
+
+## Attributes
+
+### margined
+
+type: Boolean
+
+Whether the tab container adds a margin around the content of each tab.
+
+## Child attributes
+
+The following attributes can be added to child components to change the way they are handled by the tab container.
+
+### label
+
+type: String
+
+The caption displayed on the tab.
 
 ## Example
 
 ```markup
-<Tab>
-  <TextInput label="Tab 1" />
-  <TextInput label="Tab 2" />
-  <TextInput label="Tab 3" />
+<Tab margined>
+  <Box label="Tab 1" padded>
+    ...
+  </Box>
+  <Box label="Tab 2" padded>
+    ...
+  </Box>
+  <Box label="Tab 3" padded>
+    ...
+  </Box>
 </Tab>
 ```
 

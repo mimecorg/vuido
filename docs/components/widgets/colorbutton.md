@@ -1,23 +1,26 @@
 # ColorButton
 
-A button that opens a color palette popup.
+A button that opens a color selector dialog.
+
+ColorButton supports the `v-model` directive.
 
 ## Attributes
 
-### color
+### value
 
-type: String
+type: { r: Number, g: Number, b: Number, a: Number }
 
-Set currently selected color (ex. #fefefe)
+The currently selected color. The value is an object containing four numeric properties which represent the red, green, blue and alpha components in the range from 0 to 1.
 
 ## Events
 
-### changed
+### change
 
-Emitted whenever property color change.
+Emitted when the selected color is changed. The current color is passed as an argument.
 
 ## Example
 
 ```markup
-<ColorButton @changed="onColorChanged" :color="color"/>
+<ColorButton v-model="color"/>
 ```
+

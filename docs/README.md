@@ -10,7 +10,7 @@ Create native desktop applications for Windows, OS X and Linux using Vue.js.
 
 Vuido makes it possible to create lightweight, native desktop applications using Vue.js. Applications using Vuido can run on Windows, OS X and Linux, using native GUI components, and don't require Electron.
 
-![](.gitbook/assets/vuido-screenshot.png)
+![](.gitbook/assets/vuido-demo.png)
 
 Under the hood, Vuido uses the [libui](https://github.com/andlabs/libui) library which provides native GUI components for each desktop platform, and the [libui-node](https://github.com/parro-it/libui-node) bindings for Node.js.
 

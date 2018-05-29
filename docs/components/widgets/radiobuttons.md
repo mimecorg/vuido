@@ -1,6 +1,8 @@
 # RadioButtons
 
-A choice between multiple options.
+ A widget that represent a group of radio buttons.
+
+The RadioButtons widget supports the `v-model` directive.
 
 ## Attributes
 
@@ -8,24 +10,24 @@ A choice between multiple options.
 
 type: Array
 
-Append a new radio option as last one with specified text from array.
+An array of strings representing the available options. The array must contain at least one element.
 
 ### selected
 
 type: Number
 
-Set the current choosed option by index.
+The index of the currently selected radio button.
 
 ## Events
 
-### on-selected
+### change
 
-Emitted whenever property selected change.
+Emitted when the selected radio button is changed. The current index is passed as an argument.
 
 ## Example
 
 ```markup
-// items: ['Option 1', 'Option 2', 'Option 3']
-<RadioButtons :items="items" :selected="selected"  @on-selected="onRadioSelected"/>
+<RadioButtons v-bind:items="[ 'Option 1', 'Option 2', 'Option 3' ]"
+              v-model="selected"/>
 ```
 

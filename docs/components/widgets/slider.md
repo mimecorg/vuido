@@ -1,24 +1,38 @@
 # Slider
 
-Horizontal slide to set numerical values.
+Horizontal slider for editing numeric values.
+
+Slider supports the `v-model` directive.
 
 ## Attributes
+
+### min
+
+type: Number
+
+The minimum value of the slider.
+
+### max
+
+type: Number
+
+The maximum value of the slider.
 
 ### value
 
 type: Number
 
-The current numeric value of the slider. Read write.
+The current value of the slider.
 
 ## Events
 
-### changed
+### change
 
-Emitted whenever property value change.
+Emitted when the current value is changed. The current value is passed as an argument.
 
 ## Example
 
 ```markup
-<Slider min="0" max="100" :value="slider" @changed="onSliderChange"/>
+<Slider min="0" max="100" v-model="slider"/>
 ```
 

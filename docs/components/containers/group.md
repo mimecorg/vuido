@@ -1,6 +1,8 @@
 # Group
 
-A container for a single widget that provide a caption and visually group it's children.
+A container which provides a border with a caption around its content.
+
+The group container must contain exactly one child widget, typically another container.
 
 ## Attributes
 
@@ -8,22 +10,20 @@ A container for a single widget that provide a caption and visually group it's c
 
 type: Boolean
 
-This property specify if the group content area should have a margin or not. Defaults to false.
+Whether the group adds a margin around its content.
 
 ### title
 
 type: String
 
-This property specify the caption of the group. Defaults to empty string.
-
+The caption displayed on the group border.
 
 ## Example
 
 ```markup
-<Group title="Button Group" margined>
-  <Box horizontal padded>
-    <Button v-on:click="ok">OK</Button>
-    <Button v-on:click="cancel">Cancel</Button>
+<Group title="Group" margined>
+  <Box padded>
+    ...
   </Box>
 </Group>
 ```

@@ -2,29 +2,25 @@
 
 A checkbox widget.
 
+Checkbox supports the `v-model` directive.
+
 ## Attributes
-
-### text
-
-type: String
-
-The static text of the checkbox.
 
 ### checked
 
 type: Boolean
 
-Whether the checkbox is checked or unchecked. Read write. Defaults to false
+Whether the checkbox is checked or unchecked.
 
 ## Events
 
-### toggled
+### toggle
 
-Emitted whenever property checked change.
+Emitted when the checkbox checked state is toggled.
 
 ## Example
 
 ```markup
-<Checkbox text="Checkbox 1" :checked="true" @toggled="onChecked"/>
+<Checkbox v-model="checkboxState">Checkbox label</Checkbox>
 ```
 

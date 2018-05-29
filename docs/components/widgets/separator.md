@@ -1,21 +1,18 @@
 # Separator
 
-An horizontal or vertical line to visually separate widgets.
+A horizontal or vertical line to visually separate widgets.
 
 ## Attributes
 
-### vertical
+### horizontal
 
 type: Boolean
 
-Whether the box arranges its children vertically or horizontally.
-
+Whether the separator is vertical or horizontal.
 
 ## Example
 
 ```markup
-<Separator />
-...
-<Separator vertical />
+<Separator horizontal/>
 ```
 

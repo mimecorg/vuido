@@ -1,6 +1,10 @@
-# DateTimePicker
+# TimePicker
 
-A widgets to edit date/times.
+A widget for selecting a time.
+
+{% hint style="warning" %}
+Currently TimePicker is not fully implemented.
+{% endhint %}
 
 ## Example
 

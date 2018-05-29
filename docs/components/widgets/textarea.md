@@ -4,6 +4,10 @@ An input widget for editing multiple lines of text.
 
 TextArea supports the `v-model` directive.
 
+{% hint style="info" %}
+TextArea uses the `\n` character as the line separator, regardless of the platform on which the application runs.
+{% endhint %}
+
 ## Attributes
 
 ### readonly

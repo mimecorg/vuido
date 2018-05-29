@@ -2,7 +2,7 @@
 
 The root of the Vue.js application must be a Window component which represents a single window.
 
-The Window component must contain exactly one child widget, typically a container.
+The window must contain exactly one child widget, typically a container.
 
 ## Attributes
 
@@ -28,7 +28,7 @@ The height of the window
 
 type: Boolean
 
-Whether the window adds a margin around its children.
+Whether the window adds a margin around its content.
 
 ### menu
 
@@ -41,6 +41,10 @@ Whether the window has a menu.
 ### close
 
 Called when the close button is clicked. To exit the application, call `libui.stopLoop()`. To close the window without exiting the application, call `this.$root.$destroy()`.
+
+### show
+
+Called when the window is about to be shown. Unlike the `mounted()` life-cycle hook, at this point all widgets are already initialized.
 
 ## Example
 
