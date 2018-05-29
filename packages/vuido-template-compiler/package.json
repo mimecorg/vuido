@@ -1,6 +1,6 @@
 {
   "name": "vuido-template-compiler",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Template compiler for Vuido",
   "main": "index.js",
   "repository": {
@@ -15,7 +15,7 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mimecorg/vuido/issues"
-  },    
+  },
   "homepage": "https://github.com/mimecorg/vuido",
   "dependencies": {
     "de-indent": "^1.0.2",
