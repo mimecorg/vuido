@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/.gitbook/assets/vuido-logo-200.png" alt style="max-width:100%;">
+  <img src="https://raw.githubusercontent.com/mimecorg/vuido/master/docs/.gitbook/assets/vuido-logo-200.png" alt style="max-width:100%;">
 </p>
 
 <h1 align="center">Vuido</h1>
@@ -16,7 +16,7 @@
 Vuido makes it possible to create lightweight, native desktop applications using Vue.js. Application using Vuido can run on Windows, OS X and Linux, using native GUI components, and don't require Electron.
 
 <p align="center">
-  <img src="docs/.gitbook/assets/vuido-screenshot.png" alt style="max-width:100%;">
+  <img src="https://raw.githubusercontent.com/mimecorg/vuido/master/docs/.gitbook/assets/vuido-demo.png" alt style="max-width:100%;">
 </p>
 
 Under the hood, Vuido uses the [libui](https://github.com/andlabs/libui) library which provides native GUI components for each desktop platform, and the [libui-node](https://github.com/parro-it/libui-node) bindings for Node.js.
