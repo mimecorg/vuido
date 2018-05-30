@@ -46,6 +46,14 @@ Called when the close button is clicked. To exit the application, call `libui.st
 
 Called when the window is about to be shown. Unlike the `mounted()` life-cycle hook, at this point all widgets are already initialized.
 
+## Properties
+
+### window
+
+type: libui.UiWindow
+
+This property of the Window component returns the associated libui.UiWindow object. This makes it possible to pass the window as an argument of the libui.UiDialogs functions.
+
 ## Example
 
 ```markup
