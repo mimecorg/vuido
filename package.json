@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/mimecorg/vuido",
   "dependencies": {
-    "libui-node": "^0.2.0"
+    "libui-node": "^0.2.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
