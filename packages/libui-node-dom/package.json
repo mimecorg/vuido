@@ -1,0 +1,24 @@
+{
+  "name": "libui-node-dom",
+  "version": "0.1.1",
+  "description": "DOM emulation layer for libui-node",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mimecorg/vuido.git"
+  },
+  "keywords": [
+    "libui",
+    "node",
+    "dom"
+  ],
+  "author": "Michał Męciński",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mimecorg/vuido/issues"
+  },
+  "homepage": "https://github.com/mimecorg/vuido",
+  "dependencies": {
+    "libui-node": "^0.2.1"
+  }
+}

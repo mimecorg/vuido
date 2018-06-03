@@ -8,9 +8,10 @@
     "src"
   ],
   "scripts": {
-    "build": "npm run build:runtime && npm run build:compiler && npm run build:example",
+    "build": "npm run build:runtime && npm run build:compiler && npm run build:dom && npm run build:example",
     "build:runtime": "webpack --config build/webpack.runtime.config.js",
     "build:compiler": "webpack --config build/webpack.compiler.config.js",
+    "build:dom": "webpack --config build/webpack.dom.config.js",
     "build:example": "webpack --config example/build/webpack.config.js",
     "example": "node ./example/dist/main.js"
   },
