@@ -6,8 +6,12 @@ The following prerequisites are needed to compile [libui-node](https://github.co
 
 ### Windows
 
-* [windows-build-tools](https://www.npmjs.com/package/windows-build-tools) or Visual Studio 2015
+* [windows-build-tools](https://www.npmjs.com/package/windows-build-tools)
 * [Visual C++ Redistributable Package for Visual Studio 2013](https://www.microsoft.com/en-us/download/details.aspx?id=40784)
+
+```bash
+npm install --global --production windows-build-tools
+```
 
 ### Linux
 
@@ -25,6 +29,10 @@ sudo apt install build-essential libgtk-3-dev
 ### OS X
 
 * Xcode
+
+```bash
+xcode-select --install
+```
 
 ## Quick setup
 
