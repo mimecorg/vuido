@@ -39,9 +39,19 @@ If they are not provided by default in your distribution:
 * [build-essential](https://packages.ubuntu.com/xenial/build-essential)
 * [GTK+ 3](https://packages.ubuntu.com/source/xenial/gtk+3.0)
 
+#### Ubuntu / Debian
+
+```bash
+sudo apt install build-essential libgtk-3-dev
+```
+
 ### OS X
 
 * Xcode
+
+```bash
+xcode-select --install
+```
 
 ## Quick setup
 
