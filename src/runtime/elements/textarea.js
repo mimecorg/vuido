@@ -26,14 +26,8 @@ export class TextArea extends Widget {
 
   _setWidgetAttribute( key, value ) {
     if ( key == 'value' ) {
-      if ( this.widget.text != value ) {
-        if ( process.platform == 'win32' ) {
-          // workaround for https://github.com/andlabs/libui/issues/359
-          this.widget.text = value.replace( /\n/g, '\r\n' );
-        } else {
-          this.widget.text = value;
-        }
-      }
+      if ( this.widget.text != value )
+        this.widget.text = value;
     } else if ( key == 'readonly' ) {
       this.widget.readOnly = value;
     } else {
