@@ -4,14 +4,16 @@
 * [Installation](installation/README.md)
   * [Manual configuration](installation/manual-configuration.md)
 * [Usage](usage.md)
+* [Packaging](packaging.md)
 * [Common attributes](common-attributes.md)
-* Components
+* [Components](components/README.md)
   * [Window](components/window.md)
-  * Containers
+  * [Containers](components/containers/README.md)
     * [Box](components/containers/box.md)
+    * [Form](components/containers/form.md)
     * [Group](components/containers/group.md)
     * [Tab](components/containers/tab.md)
-  * Widgets
+  * [Widgets](components/widgets/README.md)
     * [Button](components/widgets/button.md)
     * [Checkbox](components/widgets/checkbox.md)
     * [ColorButton](components/widgets/colorbutton.md)

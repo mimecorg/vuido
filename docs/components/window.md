@@ -16,13 +16,13 @@ The title of the window.
 
 type: Number
 
-The width of the window.
+The width of the window content.
 
 ### height
 
 type: Number
 
-The height of the window
+The height of the window content.
 
 ### margined
 
@@ -36,6 +36,18 @@ type: Boolean
 
 Whether the window has a menu.
 
+### fullscreen
+
+type: Boolean
+
+Whether the window is displayed in full screen mode.
+
+### borderless
+
+type: Boolean
+
+Whether the window is displayed without the border and title bar.
+
 ## Events
 
 ### close
@@ -45,6 +57,10 @@ Called when the close button is clicked. To exit the application, call `libui.st
 ### show
 
 Called when the window is about to be shown. Unlike the `mounted()` life-cycle hook, at this point all widgets are already initialized.
+
+### resize
+
+Called when the size of the window is changed. The current size is passed as an argument. It's an object containing `w` and `h` properties representing the width and height.
 
 ## Properties
 
