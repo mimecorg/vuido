@@ -1,5 +1,5 @@
 <template>
-  <Window title="Vuido Demo" width="1000" height="400" margined v-on:show="show" v-on:close="exit">
+  <Window v-bind:title="text" width="1000" height="480" margined v-on:show="show" v-on:close="exit">
     <Box horizontal padded>
       <Group stretchy title="Input Widgets" margined>
         <Box padded>
@@ -72,14 +72,16 @@
           </Box>
           <Separator horizontal/>
           <Tab stretchy margined>
-            <Box label="Tab 1">
+            <Form label="Form" padded>
+              <TextInput label="First name:"/>
+              <TextInput label="Last name:"/>
+              <Spinbox label="Age:" min="1" max="99"/>
+            </Form>
+            <Box label="Tab 2">
               <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
             </Box>
-            <Box label="Tab 2">
-              <Text>Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</Text>
-            </Box>
             <Box label="Tab 3">
-              <Text>Ut enim ad minima veniam.</Text>
+              <Text>Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</Text>
             </Box>
           </Tab>
         </Box>
