@@ -22,4 +22,4 @@ export function isUnknownElement( tag ) {
   return false;
 }
 
-export const isBooleanAttr = makeMap( 'visible,enabled,stretchy,margined,padded,checked,horizontal,readonly' );
+export const isBooleanAttr = makeMap( 'visible,enabled,stretchy,margined,padded,checked,horizontal,readonly,fullscreen,borderless' );

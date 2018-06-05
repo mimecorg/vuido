@@ -60,7 +60,9 @@ export class Window extends Element {
       width: 400,
       height: 300,
       menu: false,
-      margined: false
+      margined: false,
+      fullscreen: false,
+      borderless: false
     };
   }
 
@@ -69,6 +71,10 @@ export class Window extends Element {
 
     if ( this.attributes.margined )
       this.window.margined = true;
+    if ( this.attributes.fullscreen )
+      this.window.fullscreen = true;
+    if ( this.attributes.borderless )
+      this.window.borderless = true;
 
     for ( let key in this.handlers )
       this._setWindowHandler( key, this.handlers[ key ] );
@@ -92,15 +98,34 @@ export class Window extends Element {
   }
 
   _setWindowAttribute( key, value ) {
-    throw new Error( 'Window does not have attribute ' + key );
+    if ( key == 'title' ) {
+      this.window.title = value;
+    } else if ( key == 'width' ) {
+      if ( this.window.contentSize.w != value )
+        this.window.contentSize = new libui.Size( value, this.window.contentSize.h );
+    } else if ( key == 'height' ) {
+      if ( this.window.contentSize.h != value )
+        this.window.contentSize = new libui.Size( this.window.contentSize.w, value );
+    } else if ( key == 'fullscreen' ) {
+      this.window.fullscreen = value;
+    } else if ( key == 'borderless' ) {
+      this.window.borderless = value;
+    } else {
+      throw new Error( 'Window does not have attribute ' + key );
+    }
   }
 
   _setWindowHandler( event, handler ) {
-    if ( event == 'close' )
+    if ( event == 'close' ) {
       this.window.onClosing( handler );
-    else if ( event == 'show' )
+    } else if ( event == 'resize' ) {
+      this.window.onContentSizeChanged( () => {
+        handler( this.window.contentSize );
+      } );
+    } else if ( event == 'show' ) {
       this.showHandler = handler;
-    else
+    } else {
       throw new Error( 'Window does not have event ' + event );
+    }
   }
 }
