@@ -1,6 +1,6 @@
 {
   "name": "vuido-template-compiler",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Template compiler for Vuido",
   "main": "index.js",
   "repository": {

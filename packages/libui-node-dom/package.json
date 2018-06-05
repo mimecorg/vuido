@@ -1,6 +1,6 @@
 {
   "name": "libui-node-dom",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "DOM emulation layer for libui-node",
   "main": "index.js",
   "repository": {
