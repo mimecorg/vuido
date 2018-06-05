@@ -12,7 +12,7 @@ Whether the form adds some padding between its children.
 
 ## Child attributes
 
-The following attributes can be added to child components to change the way they are handled by the box container.
+The following attributes can be added to child components to change the way they are handled by the form container.
 
 ### label
 
@@ -32,6 +32,6 @@ Whether the child stretches to fill available space.
 <Form padded>
   <TextInput label="First name:" v-model="firstName"/>
   <TextInput label="Last name:" v-model="lastName"/>
-</Box>
+</Form>
 ```
 
