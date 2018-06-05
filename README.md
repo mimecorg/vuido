@@ -87,10 +87,15 @@ npm run build
 npm start
 ```
 
+## Packaging
+
+Although native desktop applications can run in the standard Node.js environment, it is recommended to use [LaunchUI](https://github.com/mimecorg/launchui) to package and distribute them to end users.
+
+The easiest way to create a package for your application is to use the [LaunchUI Packager](https://github.com/mimecorg/launchui-packager). It provides an API for creating packages for Windows, Linux and OS X.
+
 ## Documentation
 
 You can find the full documentation of Vuido at [vuido.mimec.org](https://vuido.mimec.org/).
-
 
 ## Development status
 
