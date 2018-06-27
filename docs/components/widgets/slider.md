@@ -1,6 +1,6 @@
 # Slider
 
-Horizontal slider for editing numeric values.
+A horizontal slider for editing numeric values.
 
 Slider supports the `v-model` directive.
 

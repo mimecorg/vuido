@@ -1,6 +1,6 @@
 # DropdownList
 
-An widget for selecting a value from a drop-down list.
+A widget for selecting a value from a drop-down list.
 
 DropdownList supports the `v-model` directive.
 

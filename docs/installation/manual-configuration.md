@@ -1,4 +1,4 @@
-# Manual configuration
+# Manual Configuration
 
 This information is intended for advanced users who wish to configure a Vuido application manually. In most cases the automatic [quick setup](./#quick-setup) should be enough.
 
@@ -19,15 +19,15 @@ Example of webpack configuration using Vuido:
 {% code-tabs %}
 {% code-tabs-item title="webpack.config.js" %}
 ```javascript
-const path = require('path');
-const webpack = require('webpack');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const VuidoTemplateCompiler = require('vuido-template-compiler');
+const path = require( 'path' );
+const webpack = require( 'webpack' );
+const VueLoaderPlugin = require( 'vue-loader/lib/plugin' );
+const VuidoTemplateCompiler = require( 'vuido-template-compiler' );
 
 module.exports = {
   entry: './src/main.js',
   output: {
-    path: path.resolve(__dirname, '../dist'),
+    path: path.resolve( __dirname, '../dist' ),
     filename: 'bundle.js'
   }
   target: 'node',
@@ -48,10 +48,10 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json']
+    extensions: [ '.js', '.vue', '.json' ]
   },
   plugins: [
-    new webpack.ExternalsPlugin('commonjs', ['libui-node']),
+    new webpack.ExternalsPlugin( 'commonjs', [ 'libui-node' ] ),
     new VueLoaderPlugin()
   ]
 };

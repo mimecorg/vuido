@@ -10,7 +10,7 @@ type: Boolean
 
 Whether the form adds some padding between its children.
 
-## Child attributes
+## Child Attributes
 
 The following attributes can be added to child components to change the way they are handled by the form container.
 

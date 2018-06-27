@@ -12,7 +12,7 @@ type: Boolean
 
 Whether the tab container adds a margin around the content of each tab.
 
-## Child attributes
+## Child Attributes
 
 The following attributes can be added to child components to change the way they are handled by the tab container.
 

@@ -34,14 +34,14 @@ sudo apt install build-essential libgtk-3-dev
 xcode-select --install
 ```
 
-## Quick setup
+## Quick Setup
 
 The easiest way to start using Vuido is to use [vue-cli](https://www.npmjs.com/package/vue-cli) to create the scaffolding of the project.
 
 First make sure that vue-cli is installed globally:
 
 ```bash
-npm install -g vue-cli
+npm install --global vue-cli
 ```
 
 Run the following command to create the project \(replace `my-project` with the name of your project\):
