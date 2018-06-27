@@ -13,15 +13,13 @@
 
 ## Introduction
 
-Vuido makes it possible to create lightweight, native desktop applications using Vue.js. Application using Vuido can run on Windows, OS X and Linux, using native GUI components, and don't require Electron.
+Vuido is a framework for creating native desktop applications based on Vue.js. Application using Vuido can run on Windows, OS X and Linux, using native GUI components, and don't require Electron.
+
+Under the hood, Vuido uses the [libui](https://github.com/andlabs/libui) library which provides native GUI components for each desktop platform, and the [libui-node](https://github.com/parro-it/libui-node) bindings for Node.js.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/mimecorg/vuido/master/docs/.gitbook/assets/vuido-demo.png" alt style="max-width:100%;">
 </p>
-
-Under the hood, Vuido uses the [libui](https://github.com/andlabs/libui) library which provides native GUI components for each desktop platform, and the [libui-node](https://github.com/parro-it/libui-node) bindings for Node.js.
-
-Vuido supports most of the standard Vue.js API and it's compatible with many Vue.js extensions, for example Vuex. Applications using Vuido can also use all standard Node.js modules and any packages compatible with Node.js.
 
 ## Prerequisites
 
@@ -57,14 +55,14 @@ sudo apt install build-essential libgtk-3-dev
 xcode-select --install
 ```
 
-## Quick setup
+## Quick Setup
 
 The easiest way to start using Vuido is to use [vue-cli](https://www.npmjs.com/package/vue-cli) to create the scaffolding of the project.
 
 First make sure that vue-cli is installed globally:
 
 ```bash
-npm install -g vue-cli
+npm install --global vue-cli
 ```
 
 Run the following command to create the project \(replace `my-project` with the name of your project\):
@@ -97,9 +95,11 @@ The easiest way to create a package for your application is to use the [LaunchUI
 
 You can find the full documentation of Vuido at [vuido.mimec.org](https://vuido.mimec.org/).
 
-## Development status
+## Development Status
 
-At the moment Vuido is in a very early stage of development. The main goal is to implement all remaining controls currently supported by libui.
+Currently Vuido implements the basic containers and widgets and it's ready to be used for creating simple applications. More advanced features are under active development.
+
+Bug reports and feature requests are welcome, however please look for a related issue in the [libui](https://github.com/andlabs/libui) project first, because Vuido can only implement functionality which is already implemented in libui.
 
 ## Acknowledgements
 
