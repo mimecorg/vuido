@@ -99,6 +99,8 @@ export class Window extends Element {
 
   _setWindowAttribute( key, value ) {
     if ( key == 'title' ) {
+      if ( value == null )
+        value = '';
       this.window.title = value;
     } else if ( key == 'width' ) {
       if ( this.window.contentSize.w != value )

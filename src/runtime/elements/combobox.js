@@ -25,7 +25,7 @@ export class Combobox extends Widget {
       this.widget.append( item );
     } );
 
-    if ( this.attributes.value != '' )
+    if ( this.attributes.value != '' && this.attributes.value != null )
       this.widget.text = this.attributes.value;
 
     this.items = this.attributes.items;
@@ -43,6 +43,8 @@ export class Combobox extends Widget {
           throw new Error( 'Combobox items cannot be changed dynamically' );
       } );
     } else if ( key == 'value' ) {
+      if ( value == null )
+        value = '';
       if ( this.widget.text != value )
         this.widget.text = value;
     } else {

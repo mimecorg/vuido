@@ -26,7 +26,7 @@ export class TextInput extends Widget {
   _initializeWidgetAttributes() {
     super._initializeWidgetAttributes();
 
-    if ( this.attributes.value != '' )
+    if ( this.attributes.value != '' && this.attributes.value != null )
       this.widget.text = this.attributes.value;
     if ( this.attributes.readonly )
       this.widget.readOnly = true;
@@ -34,6 +34,8 @@ export class TextInput extends Widget {
 
   _setWidgetAttribute( key, value ) {
     if ( key == 'value' ) {
+      if ( value == null )
+        value = '';
       if ( this.widget.text != value )
         this.widget.text = value;
     } else if ( key == 'readonly' ) {
