@@ -1,5 +1,5 @@
 <template>
-  <Window v-bind:title="text" width="1000" height="480" margined v-on:show="show" v-on:close="exit">
+  <Window title="Vuido Demo" width="1000" height="480" margined v-on:show="show" v-on:close="exit">
     <Box horizontal padded>
       <Group stretchy title="Input Widgets" margined>
         <Box padded>
