@@ -21,14 +21,14 @@ export class Widget extends Element {
   }
 
   insertBefore( childNode, referenceNode ) {
-    const index = super.insertBefore( childNode, referenceNode );
+    const prevIndex = childNode.parentNode == this ? this.childNodes.indexOf( childNode ) : -1;
+
+    super.insertBefore( childNode, referenceNode );
 
     if ( this.widget != null ) {
       if ( childNode instanceof Element )
-        this._insertElement( childNode, index );
+        this._insertElement( childNode, prevIndex );
     }
-
-    return index;
   }
 
   removeChild( childNode ) {
@@ -92,9 +92,18 @@ export class Widget extends Element {
 
   _destroyWidget() {
     this.widget.destroy();
+
+    this._clearWidget();
+  }
+
+  _clearWidget() {
     this.widget = null;
 
-    this.childNodes = [];
+    for ( let i = 0; i < this.childNodes.length; i++ ) {
+      const child = this.childNodes[ i ];
+      if ( child instanceof Widget )
+        child._clearWidget();
+    }
   }
 
   _appendElement( childNode ) {
@@ -102,42 +111,42 @@ export class Widget extends Element {
       throw new Error( this.tagName + ' cannot contain ' + childNode.tagName + ' elements' );
 
     childNode._mountWidget();
-    childNode.widgetIndex = this.childNodes.indexOf( childNode );
     this._appendWidget( childNode );
+
+    this._reindexChildWidgets();
   }
 
-  _insertElement( childNode, index ) {
+  _insertElement( childNode, prevIndex ) {
     if ( !( childNode instanceof Widget ) )
       throw new Error( this.tagName + ' cannot contain ' + childNode.tagName + ' elements' );
 
+    const index = this.childNodes.indexOf( childNode );
+
     for ( let i = this.childNodes.length - 1; i > index; i-- ) {
       const tailNode = this.childNodes[ i ];
-      if ( tailNode instanceof Element )
+      if ( tailNode instanceof Widget )
         this._removeWidget( tailNode );
     }
 
-    let widgetIndex = 0;
-    for ( let i = 0; i < index; i++ ) {
-      if ( this.childNodes[ i ] instanceof Widget )
-        widgetIndex++;
+    if ( prevIndex < 0 ) {
+      childNode._mountWidget();
+      this._appendWidget( childNode );
+    } else if ( prevIndex < index ) {
+      this._removeWidget( childNode );
+      this._appendWidget( childNode );
     }
-
-    childNode._mountWidget();
-    childNode.widgetIndex = widgetIndex++;
-    this._appendWidget( childNode );
 
     for ( let i = index + 1; i < this.childNodes.length; i++ ) {
       const tailNode = this.childNodes[ i ];
-      if ( tailNode instanceof Element ) {
-        tailNode.widgetIndex = widgetIndex++;
+      if ( tailNode instanceof Widget )
         this._appendWidget( tailNode );
-      }
     }
+
+    this._reindexChildWidgets();
   }
 
   _removeElement( childNode ) {
     this._removeWidget( childNode );
-
     childNode._destroyWidget();
 
     this._reindexChildWidgets();

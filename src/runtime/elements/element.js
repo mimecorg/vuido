@@ -42,22 +42,39 @@ export class Element {
     if ( referenceNode != null && referenceNode.parentNode != this )
       throw new Error( 'Reference node has invalid parent' );
 
-    if ( childNode.parentNode != null )
-      throw new Error( 'Child node already has a parent' );
+    if ( childNode.parentNode != null && childNode.parentNode != this )
+      throw new Error( 'Child node has invalid parent' );
 
     if ( childNode instanceof TextNode )
       throw new Error( 'Text node cannot be inserted dynamically' );
 
-    const index = this.childNodes.indexOf( referenceNode );
+    if ( childNode.parentNode != null ) {
+      if ( childNode.prevSibling != null )
+        childNode.prevSibling.nextSibling = childNode.nextSibling;
+
+      if ( childNode.nextSibling != null )
+        childNode.nextSibling.prevSibling = childNode.prevSibling;
+
+      const prevIndex = this.childNodes.indexOf( childNode );
+      this.childNodes.splice( prevIndex, 1 );
+    }
+
+    const index = referenceNode != null ? this.childNodes.indexOf( referenceNode ) : this.childNodes.length;
 
     childNode.parentNode = this;
+
     childNode.nextSibling = referenceNode;
-    childNode.prevSibling = this.childNodes[ index - 1 ];
+    if ( referenceNode != null )
+      referenceNode.prevSibling = childNode;
 
-    referenceNode.prevSibling = childNode;
+    if ( index > 0 ) {
+      childNode.prevSibling = this.childNodes[ index - 1 ];
+      this.childNodes[ index - 1 ].nextSibling = childNode;
+    } else {
+      childNode.prevSibling = null;
+    }
+
     this.childNodes.splice( index, 0, childNode );
-
-    return index;
   }
 
   removeChild( childNode ) {
@@ -78,8 +95,10 @@ export class Element {
     if ( childNode.nextSibling != null )
       childNode.nextSibling.prevSibling = childNode.prevSibling;
 
-    const index = this.childNodes.indexOf( childNode );
+    childNode.prevSibling = null;
+    childNode.nextSibling = null;
 
+    const index = this.childNodes.indexOf( childNode );
     this.childNodes.splice( index, 1 );
   }
 
