@@ -1,3 +1,4 @@
+export * from './area'
 export * from './box'
 export * from './button'
 export * from './checkbox'

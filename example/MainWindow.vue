@@ -77,9 +77,7 @@
               <TextInput label="Last name:"/>
               <Spinbox label="Age:" min="1" max="99"/>
             </Form>
-            <Box label="Tab 2">
-              <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
-            </Box>
+            <ExampleArea label="Area"/>
             <Box label="Tab 3">
               <Text>Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</Text>
             </Box>
@@ -93,7 +91,12 @@
 <script>
   import libui from 'libui-node'
 
+  import ExampleArea from './ExampleArea'
+
   export default {
+    components: {
+      ExampleArea
+    },
     data() {
       return {
         text: 'Text input',
