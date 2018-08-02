@@ -21,10 +21,27 @@ libui.UiWindow = class {
   }
 };
 
-libui.UiBox = class {
+libui.UiControl = class {
+  constructor() {
+    this.visible = true;
+    this.enabled = true;
+  }
 };
 
-libui.UiText = class {
+libui.UiBox = class extends libui.UiControl {
+};
+
+libui.UiText = class extends libui.UiControl {
+};
+
+libui.UiButton = class extends libui.UiControl {
+  constructor() {
+    super();
+    this.text = '';
+  }
+
+  onClicked( handler ) {
+  }
 };
 
 module.exports = libui;

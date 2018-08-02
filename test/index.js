@@ -15,4 +15,6 @@ mock( 'libui-node', libui );
 mock( 'libui-node-dom', '../packages/libui-node-dom' );
 
 require( './spec/nodes' );
+require( './spec/elements' );
+require( './spec/widgets' );
 require( './spec/window' );
