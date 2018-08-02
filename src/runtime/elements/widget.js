@@ -16,7 +16,7 @@ export class Widget extends Element {
       if ( childNode instanceof Element )
         this._appendElement( childNode );
       else if ( childNode instanceof TextNode )
-        this._setWidgetText( child.text );
+        this._setWidgetText( childNode.text );
     }
   }
 
@@ -100,9 +100,9 @@ export class Widget extends Element {
     this.widget = null;
 
     for ( let i = 0; i < this.childNodes.length; i++ ) {
-      const child = this.childNodes[ i ];
-      if ( child instanceof Widget )
-        child._clearWidget();
+      const childNode = this.childNodes[ i ];
+      if ( childNode instanceof Widget )
+        childNode._clearWidget();
     }
   }
 
