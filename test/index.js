@@ -15,9 +15,3 @@ afterEach( () => {
 
 mock( 'libui-node', libui );
 mock( 'libui-node-dom', '../packages/libui-node-dom' );
-
-require( './spec/nodes' );
-require( './spec/element' );
-require( './spec/widgets' );
-require( './spec/containers' );
-require( './spec/window' );

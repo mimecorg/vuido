@@ -1,7 +1,7 @@
 const expect = require( 'chai' ).expect;
 const sinon = require( 'sinon' );
 
-const { Comment, TextNode, Element } = require( 'libui-node-dom' );
+const {  TextNode, Element } = require( 'libui-node-dom' );
 
 describe( 'TextNode' , () => {
   it( 'constructor', () => {
@@ -33,25 +33,5 @@ describe( 'TextNode' , () => {
     node.setText( 'bar' );
 
     expect( parent._setContentText ).to.have.been.calledWith( 'bar' );
-  } );
-} );
-
-describe( 'Comment', () => {
-  it( 'constructor', () => {
-    const node = new Comment( 'foo' );
-
-    expect( node.parentNode ).to.be.null;
-    expect( node.prevSibling ).to.be.null;
-    expect( node.nextSibling ).to.be.null;
-    expect( node.tagName ).to.be.empty;
-    expect( node.text ).to.equal( 'foo' );
-  } );
-
-  it( 'setText', () => {
-    const node = new Comment( 'foo' );
-
-    node.setText( 'bar' );
-
-    expect( node.text ).to.equal( 'bar' );
   } );
 } );

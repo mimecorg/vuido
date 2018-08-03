@@ -14,7 +14,8 @@
     "build:dom": "webpack --config build/webpack.dom.config.js",
     "build:example": "webpack --config example/build/webpack.config.js",
     "example": "node ./example/dist/main.js",
-    "test": "mocha"
+    "test": "mocha test/index.js test/spec/**/*.spec.js",
+    "test:watch": "mocha --watch test/index.js test/spec/**/*.spec.js"
   },
   "repository": {
     "type": "git",
