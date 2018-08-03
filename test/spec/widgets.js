@@ -5,27 +5,27 @@ const libui = require( 'libui-node' );
 
 const { TextNode, Button } = require( 'libui-node-dom' );
 
-describe( 'widgets', () => {
-  describe( 'Button', () => {
-    it( 'constructor', () => {
-      const button = new Button( 'Button' );
+describe( 'Button', () => {
+  it( 'constructor', () => {
+    const button = new Button( 'Button' );
 
-      expect( button.parentNode ).to.be.null;
-      expect( button.prevSibling ).to.be.null;
-      expect( button.nextSibling ).to.be.null;
-      expect( button.tagName ).to.equal( 'Button' );
-      expect( button.childNodes ).to.be.an( 'array' ).that.is.empty;
-      expect( button.attributes ).to.be.deep.equal( {
-        visible: true,
-        enabled: true,
-        stretchy: false,
-        label: ''
-      } );
-      expect( button.handlers ).to.be.an( 'object' ).that.is.empty;
-      expect( button.widget ).to.be.null;
+    expect( button.parentNode ).to.be.null;
+    expect( button.prevSibling ).to.be.null;
+    expect( button.nextSibling ).to.be.null;
+    expect( button.tagName ).to.equal( 'Button' );
+    expect( button.childNodes ).to.be.an( 'array' ).that.is.empty;
+    expect( button.attributes ).to.be.deep.equal( {
+      visible: true,
+      enabled: true,
+      stretchy: false,
+      label: ''
     } );
+    expect( button.handlers ).to.be.an( 'object' ).that.is.empty;
+    expect( button.widget ).to.be.null;
+  } );
 
-    it( '_mountWidget', () => {
+  describe( '_mountWidget', () => {
+    it( 'default', () => {
       const button = new Button( 'Button' );
 
       button._mountWidget();
@@ -37,7 +37,7 @@ describe( 'widgets', () => {
       expect( button.widget.text ).to.be.empty;
     } );
 
-    it( '_mountWidget with attributes', () => {
+    it( 'with attributes', () => {
       const button = new Button( 'Button' );
 
       button.setAttribute( 'visible', false );
@@ -49,7 +49,7 @@ describe( 'widgets', () => {
       expect( button.widget.enabled ).to.be.false;
     } );
 
-    it( '_mountWidget with event listener', () => {
+    it( 'with event listener', () => {
       const button = new Button( 'Button' );
       const handler = sinon.stub();
 
@@ -62,7 +62,7 @@ describe( 'widgets', () => {
       expect( libui.UiButton.prototype.onClicked ).to.be.calledOn( button.widget ).and.calledWith( handler );
     } );
 
-    it( '_mountWidget with child text node', () => {
+    it( 'with child text node', () => {
       const button = new Button( 'Button' );
       const text = new TextNode( 'foo' );
 
@@ -73,7 +73,7 @@ describe( 'widgets', () => {
       expect( button.widget.text ).to.equal( 'foo' );
     } );
 
-    it( '_mountWidget with child element fails', () => {
+    it( 'with child element fails', () => {
       const button = new Button( 'Button' );
       const child = new Button( 'Button' );
 
@@ -81,8 +81,10 @@ describe( 'widgets', () => {
 
       expect( () => button._mountWidget() ).to.throw();
     } );
+  } );
 
-    it( 'setAttribute after mount', () => {
+  describe( 'modify after _mountWidget', () => {
+    it( 'setAttribute', () => {
       const button = new Button( 'Button' );
 
       button._mountWidget();
@@ -94,7 +96,7 @@ describe( 'widgets', () => {
       expect( button.widget.enabled ).to.be.false;
     } );
 
-    it( 'addEventListener after mount', () => {
+    it( 'addEventListener', () => {
       const button = new Button( 'Button' );
       const handler = sinon.stub();
 
@@ -107,7 +109,7 @@ describe( 'widgets', () => {
       expect( libui.UiButton.prototype.onClicked ).to.be.calledOn( button.widget ).and.calledWith( handler );
     } );
 
-    it( 'removeEventListener after mount', () => {
+    it( 'removeEventListener', () => {
       const button = new Button( 'Button' );
       const handler = sinon.stub();
 
@@ -122,7 +124,7 @@ describe( 'widgets', () => {
       expect( libui.UiButton.prototype.onClicked ).to.be.calledOn( button.widget ).and.calledWith( null );
     } );
 
-    it( 'appendChild text node after mount', () => {
+    it( 'appendChild text node', () => {
       const button = new Button( 'Button' );
       const text = new TextNode( 'foo' );
 
@@ -133,7 +135,7 @@ describe( 'widgets', () => {
       expect( button.widget.text ).to.equal( 'foo' );
     } );
 
-    it( 'setText on child text node after mount', () => {
+    it( 'setText on child text node', () => {
       const button = new Button( 'Button' );
       const text = new TextNode( 'foo' );
 

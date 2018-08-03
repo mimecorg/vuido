@@ -3,50 +3,48 @@ const sinon = require( 'sinon' );
 
 const { Comment, TextNode, Element } = require( 'libui-node-dom' );
 
-describe( 'elements', () => {
-  describe( 'basic', () => {
-    it( 'constructor', () => {
-      const elmement = new Element( 'foo' );
+describe( 'Element', () => {
+  it( 'constructor', () => {
+    const element = new Element( 'foo' );
 
-      expect( elmement.parentNode ).to.be.null;
-      expect( elmement.prevSibling ).to.be.null;
-      expect( elmement.nextSibling ).to.be.null;
-      expect( elmement.tagName ).to.equal( 'foo' );
-      expect( elmement.childNodes ).to.be.an( 'array' ).that.is.empty;
-      expect( elmement.attributes ).to.be.an( 'object' ).that.is.empty;
-      expect( elmement.handlers ).to.be.an( 'object' ).that.is.empty;
-    } );
-
-    it( 'setAttribute', () => {
-      const element = new Element( 'foo' );
-
-      element.setAttribute( 'bar', 'value' );
-
-      expect( element.attributes.bar ).to.equal( 'value' );
-    } );
-
-    it( 'addEventListener', () => {
-      const element = new Element( 'foo' );
-      const handler = sinon.stub();
-
-      element.addEventListener( 'bar', handler );
-
-      expect( element.handlers.bar ).to.equal( handler );
-    } );
-
-    it( 'removeEventListener', () => {
-      const element = new Element( 'foo' );
-      const handler = sinon.stub();
-
-      element.addEventListener( 'bar', handler );
-
-      element.removeEventListener( 'bar' );
-
-      expect( element.handlers.bar ).to.be.undefined;
-    } );
+    expect( element.parentNode ).to.be.null;
+    expect( element.prevSibling ).to.be.null;
+    expect( element.nextSibling ).to.be.null;
+    expect( element.tagName ).to.equal( 'foo' );
+    expect( element.childNodes ).to.be.an( 'array' ).that.is.empty;
+    expect( element.attributes ).to.be.an( 'object' ).that.is.empty;
+    expect( element.handlers ).to.be.an( 'object' ).that.is.empty;
   } );
 
-  describe( 'children', () => {
+  it( 'setAttribute', () => {
+    const element = new Element( 'foo' );
+
+    element.setAttribute( 'bar', 'value' );
+
+    expect( element.attributes.bar ).to.equal( 'value' );
+  } );
+
+  it( 'addEventListener', () => {
+    const element = new Element( 'foo' );
+    const handler = sinon.stub();
+
+    element.addEventListener( 'bar', handler );
+
+    expect( element.handlers.bar ).to.equal( handler );
+  } );
+
+  it( 'removeEventListener', () => {
+    const element = new Element( 'foo' );
+    const handler = sinon.stub();
+
+    element.addEventListener( 'bar', handler );
+
+    element.removeEventListener( 'bar' );
+
+    expect( element.handlers.bar ).to.be.undefined;
+  } );
+
+  describe( 'manipulate children', () => {
     it( 'appendChild element', () => {
       const parent = new Element( 'parent' );
       const child = new Element( 'child' );
