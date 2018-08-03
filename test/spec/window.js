@@ -207,6 +207,10 @@ describe( 'Window', () => {
 
       expect( window.window ).to.be.null;
 
+      expect( box.widget ).to.be.null;
+      expect( button1.widget ).to.be.null;
+      expect( button2.widget ).to.be.null;
+
       expect( libui.UiWindow.prototype.close ).to.have.been.calledOn( uiWindow );
   } );
 } );

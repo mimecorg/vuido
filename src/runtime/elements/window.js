@@ -94,7 +94,11 @@ export class Window extends Element {
     this.window.close();
     this.window = null;
 
-    this.childNodes = [];
+    for ( let i = 0; i < this.childNodes.length; i++ ) {
+      const childNode = this.childNodes[ i ];
+      if ( childNode instanceof Widget )
+        childNode._clearWidget();
+    }
   }
 
   _setWindowAttribute( key, value ) {
