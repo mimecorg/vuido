@@ -70,7 +70,18 @@ libui.UiButton = class extends libui.UiControl {
   }
 };
 
-libui.UiText = class extends libui.UiControl {
+libui.UiLabel = class extends libui.UiControl {
+  constructor() {
+    super();
+    this.text = '';
+  }
+};
+
+libui.UiEntry = class extends libui.UiControl {
+  constructor() {
+    super();
+    this.text = '';
+  }
 };
 
 libui.Size = class {

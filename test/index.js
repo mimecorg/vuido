@@ -15,3 +15,4 @@ afterEach( () => {
 
 mock( 'libui-node', libui );
 mock( 'libui-node-dom', '../packages/libui-node-dom' );
+mock( 'vuido', '../dist/vuido' );
