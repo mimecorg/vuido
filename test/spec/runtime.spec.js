@@ -79,6 +79,26 @@ describe( 'runtime', () => {
     } );
   } );
 
+  it( 'component with boolean attributes', () => {
+    const vm = new Vue( {
+      render( h ) {
+        return h( 'Window', { attrs: { title: 'foo', margined: '', borderless: '' } }, [
+          h( 'Box', { ref: 'box', attrs: { horizontal: '', padded: '' } }, [
+            h( 'Text', { ref: 'text', attrs: { stretchy: '' } }, 'bar' )
+          ] )
+        ] );
+      }
+    } );
+
+    vm.$mount();
+
+    expect( vm.$el.window.margined ).to.be.true;
+    expect( vm.$el.window.borderless ).to.be.true;
+    expect( vm.$refs.box.widget ).to.be.an.instanceof( libui.UiHorizontalBox );
+    expect( vm.$refs.box.widget.padded ).to.be.true;
+    expect( vm.$refs.text.attributes.stretchy ).to.be.true;
+  } );
+
   it( 'component with an event handler', () => {
     const vm = new Vue( {
       render( h ) {
