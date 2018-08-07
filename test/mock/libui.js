@@ -84,10 +84,28 @@ libui.UiEntry = class extends libui.UiControl {
   }
 };
 
+libui.UiArea = class extends libui.UiControl {
+  constructor( drawCb, mouseEventCb, mouseCrossedCb, dragBrokenCb, keyEventCb, width, heigth ) {
+    super();
+  }
+
+  setSize( width, height ) {
+  }
+
+  queueRedrawAll() {
+  }
+};
+
 libui.Size = class {
   constructor( width, height ) {
     this.w = width;
     this.h = height;
+  }
+};
+
+libui.DrawStrokeParams = class {
+  constructor() {
+    this.thickness = 0;
   }
 };
 
