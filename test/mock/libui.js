@@ -77,11 +77,24 @@ libui.UiLabel = class extends libui.UiControl {
   }
 };
 
-libui.UiEntry = class extends libui.UiControl {
+libui.UiEntryBase = class extends libui.UiControl {
   constructor() {
     super();
     this.text = '';
+    this.readOnly = false;
   }
+
+  onChanged( handler ) {
+  }
+};
+
+libui.UiEntry = class extends libui.UiEntryBase {
+};
+
+libui.UiPasswordEntry = class extends libui.UiEntryBase {
+};
+
+libui.UiSearchEntry = class extends libui.UiEntryBase {
 };
 
 libui.UiArea = class extends libui.UiControl {
