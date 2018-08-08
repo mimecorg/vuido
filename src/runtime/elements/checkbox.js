@@ -3,7 +3,7 @@ import libui from 'libui-node'
 import {Widget} from './widget'
 
 export class Checkbox extends Widget {
-  getDefaultAttributes() {
+  _getDefaultAttributes() {
     return {
       ...super._getDefaultAttributes(),
       checked: false
