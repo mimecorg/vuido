@@ -97,6 +97,120 @@ libui.UiPasswordEntry = class extends libui.UiEntryBase {
 libui.UiSearchEntry = class extends libui.UiEntryBase {
 };
 
+libui.UiCheckbox = class extends libui.UiControl {
+  constructor() {
+    super();
+    this.text = '';
+    this.checked = false;
+  }
+
+  onToggled( handler ) {
+  }
+};
+
+libui.UiColorButton = class extends libui.UiControl {
+  constructor() {
+    super();
+    this.color = null;
+  }
+
+  onChanged( handler ) {
+  }
+};
+
+libui.UiEditableCombobox = class extends libui.UiControl {
+  constructor() {
+    super();
+    this.items = [];
+    this.text = '';
+  }
+
+  append( item ) {
+    this.items.push( item );
+  }
+
+  onChanged( handler ) {
+  }
+};
+
+libui.UiCombobox = class extends libui.UiControl {
+  constructor() {
+    super();
+    this.items = [];
+    this.selected = 0;
+  }
+
+  append( item ) {
+    this.items.push( item );
+  }
+
+  onSelected( handler ) {
+  }
+};
+
+libui.UiProgressBar = class extends libui.UiControl {
+  constructor() {
+    super();
+    this.value = 0;
+  }
+};
+
+libui.UiRadioButtons = class extends libui.UiControl {
+  constructor() {
+    super();
+    this.items = [];
+    this.selected = 0;
+  }
+
+  append( item ) {
+    this.items.push( item );
+  }
+
+  onSelected( handler ) {
+  }
+};
+
+libui.UiVerticalSeparator = class extends libui.UiControl {
+};
+
+libui.UiHorizontalSeparator = class extends libui.UiControl {
+};
+
+libui.UiSlider = class extends libui.UiControl {
+  constructor( min, max ) {
+    super();
+    this.min = min;
+    this.max = max;
+    this.value = 0;
+  }
+
+  onChanged( handler ) {
+  }
+};
+
+libui.UiSpinbox = class extends libui.UiControl {
+  constructor( min, max ) {
+    super();
+    this.min = min;
+    this.max = max;
+    this.value = 0;
+  }
+
+  onChanged( handler ) {
+  }
+};
+
+libui.UiMultilineEntry = class extends libui.UiControl {
+  constructor() {
+    super();
+    this.text = '';
+    this.readOnly = false;
+  }
+
+  onChanged( handler ) {
+  }
+};
+
 libui.UiArea = class extends libui.UiControl {
   constructor( drawCb, mouseEventCb, mouseCrossedCb, dragBrokenCb, keyEventCb, width, heigth ) {
     super();
@@ -106,6 +220,15 @@ libui.UiArea = class extends libui.UiControl {
   }
 
   queueRedrawAll() {
+  }
+};
+
+libui.Color = class {
+  constructor( r, g, b, a ) {
+    this.r = r;
+    this.g = g;
+    this.b = b;
+    this.a = a;
   }
 };
 
