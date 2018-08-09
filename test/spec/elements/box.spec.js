@@ -14,7 +14,7 @@ describe( 'Box', () => {
     expect( box.nextSibling ).to.be.null;
     expect( box.tagName ).to.equal( 'Box' );
     expect( box.childNodes ).to.be.an( 'array' ).that.is.empty;
-    expect( box.attributes ).to.be.deep.equal( {
+    expect( box.attributes ).to.deep.equal( {
       visible: true,
       enabled: true,
       stretchy: false,

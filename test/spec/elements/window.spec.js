@@ -83,33 +83,52 @@ describe( 'Window', () => {
       expect( window.window.borderless ).to.be.true;
     } );
 
-    it( 'with event listeners', () => {
+    it( 'with show event listener', () => {
       const window = new Window( 'Window' );
-      const handler1 = sinon.stub();
+      const handler = sinon.stub();
       const handler2 = sinon.stub();
       const handler3 = sinon.stub();
 
-      window.addEventListener( 'close', handler1 );
-      window.addEventListener( 'resize', handler2 );
-      window.addEventListener( 'show', handler3 );
+      window.addEventListener( 'show', handler );
+
+      window._mountWindow();
+
+      expect( handler ).to.have.been.called;
+    } );
+
+    it( 'with close event listener', () => {
+      const window = new Window( 'Window' );
+      const handler = sinon.stub();
+
+      window.addEventListener( 'close', handler );
 
       sinon.spy( libui.UiWindow.prototype, 'onClosing' );
+
+      window._mountWindow();
+
+      expect( libui.UiWindow.prototype.onClosing ).to.have.been.calledOn( window.window ).and.calledWith( handler );
+    } );
+
+    it( 'with resize event listener', () => {
+      const window = new Window( 'Window' );
+      const handler = sinon.stub();
+
+      window.addEventListener( 'resize', handler );
+
       sinon.spy( libui.UiWindow.prototype, 'onContentSizeChanged' );
 
       window._mountWindow();
 
-      expect( libui.UiWindow.prototype.onClosing ).to.have.been.calledOn( window.window ).and.calledWith( handler1 );
-      expect( libui.UiWindow.prototype.onContentSizeChanged ).to.have.been.calledOn( window.window ).and.calledWith( sinon.match( handler => {
+      expect( libui.UiWindow.prototype.onContentSizeChanged ).to.have.been.calledOn( window.window ).and.calledWith( sinon.match( callback => {
         const size = new libui.Size( 800, 600 );
         window.window.contentSize = size;
-        handler();
-        expect( handler2 ).to.have.been.calledWith( size );
+        callback();
+        expect( handler ).to.have.been.calledWith( size );
         return true;
       } ) );
-      expect( handler3 ).to.have.been.called;
     } );
 
-    it( 'with child widget', () => {
+    it( 'with child widgets', () => {
       const window = new Window( 'Window' );
       const box = new Box( 'Box' );
       const button1 = new Button( 'Button' );

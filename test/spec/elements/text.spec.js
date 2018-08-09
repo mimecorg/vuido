@@ -13,7 +13,7 @@ describe( 'Text', () => {
     expect( text.nextSibling ).to.be.null;
     expect( text.tagName ).to.equal( 'Text' );
     expect( text.childNodes ).to.be.an( 'array' ).that.is.empty;
-    expect( text.attributes ).to.be.deep.equal( {
+    expect( text.attributes ).to.deep.equal( {
       visible: true,
       enabled: true,
       stretchy: false,

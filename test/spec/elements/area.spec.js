@@ -14,7 +14,7 @@ describe( 'Area', () => {
     expect( area.nextSibling ).to.be.null;
     expect( area.tagName ).to.equal( 'Area' );
     expect( area.childNodes ).to.be.an( 'array' ).that.is.empty;
-    expect( area.attributes ).to.be.deep.equal( {
+    expect( area.attributes ).to.deep.equal( {
       visible: true,
       enabled: true,
       stretchy: false,

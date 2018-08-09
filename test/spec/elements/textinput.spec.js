@@ -14,7 +14,7 @@ describe( 'TextInput', () => {
     expect( input.nextSibling ).to.be.null;
     expect( input.tagName ).to.equal( 'TextInput' );
     expect( input.childNodes ).to.be.an( 'array' ).that.is.empty;
-    expect( input.attributes ).to.be.deep.equal( {
+    expect( input.attributes ).to.deep.equal( {
       visible: true,
       enabled: true,
       stretchy: false,

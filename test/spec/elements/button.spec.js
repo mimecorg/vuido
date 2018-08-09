@@ -14,7 +14,7 @@ describe( 'Button', () => {
     expect( button.nextSibling ).to.be.null;
     expect( button.tagName ).to.equal( 'Button' );
     expect( button.childNodes ).to.be.an( 'array' ).that.is.empty;
-    expect( button.attributes ).to.be.deep.equal( {
+    expect( button.attributes ).to.deep.equal( {
       visible: true,
       enabled: true,
       stretchy: false,
@@ -59,7 +59,7 @@ describe( 'Button', () => {
 
       button._mountWidget();
 
-      expect( libui.UiButton.prototype.onClicked ).to.be.calledOn( button.widget ).and.calledWith( handler );
+      expect( libui.UiButton.prototype.onClicked ).to.have.been.calledOn( button.widget ).and.calledWith( handler );
     } );
 
     it( 'with child text node', () => {
@@ -106,7 +106,7 @@ describe( 'Button', () => {
 
       button.addEventListener( 'click', handler );
 
-      expect( libui.UiButton.prototype.onClicked ).to.be.calledOn( button.widget ).and.calledWith( handler );
+      expect( libui.UiButton.prototype.onClicked ).to.have.been.calledOn( button.widget ).and.calledWith( handler );
     } );
 
     it( 'removeEventListener', () => {
@@ -121,7 +121,7 @@ describe( 'Button', () => {
 
       button.removeEventListener( 'click' );
 
-      expect( libui.UiButton.prototype.onClicked ).to.be.calledOn( button.widget ).and.calledWith( null );
+      expect( libui.UiButton.prototype.onClicked ).to.have.been.calledOn( button.widget ).and.calledWith( null );
     } );
 
     it( 'appendChild text node', () => {
