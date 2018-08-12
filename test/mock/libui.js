@@ -60,6 +60,59 @@ libui.UiHorizontalBox = class extends libui.UiBox {
 libui.UiVerticalBox = class extends libui.UiBox {
 };
 
+libui.UiForm = class extends libui.UiControl {
+  constructor() {
+    super();
+    this.padded = false;
+    this.children = [];
+  }
+
+  append( label, control, stretchy ) {
+    this.children.push( control );
+  }
+
+  deleteAt( index ) {
+    if ( index < 0 || index >= this.children.length )
+      throw new RangeError( 'Invalid control index' );
+    this.children.splice( index, 1 );
+  }
+};
+
+libui.UiGroup = class extends libui.UiControl {
+  constructor() {
+    super();
+    this.title = '';
+    this.margined = false;
+  }
+
+  setChild( control ) {
+  }
+};
+
+libui.UiTab = class extends libui.UiControl {
+  constructor() {
+    super();
+    this.children = [];
+  }
+
+  append( label, control ) {
+    this.children.push( control );
+  }
+
+  deleteAt( index ) {
+    if ( index < 0 || index >= this.children.length )
+      throw new RangeError( 'Invalid control index' );
+    this.children.splice( index, 1 );
+  }
+
+  numPages() {
+    return this.children.length;
+  }
+
+  setMargined( index, margined ) {
+  }
+};
+
 libui.UiButton = class extends libui.UiControl {
   constructor() {
     super();
