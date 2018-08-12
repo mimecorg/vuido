@@ -18,7 +18,7 @@ export class Tab extends Widget {
     this.widget.append( childNode.attributes.label, childNode.widget );
 
     if ( this.attributes.margined )
-      this.widget.setMargined( childNode.widgetIndex, true );
+      this.widget.setMargined( this.widget.numPages() - 1, true );
   }
 
   _removeWidget( childNode ) {
