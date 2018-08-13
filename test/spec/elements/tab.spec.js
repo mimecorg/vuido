@@ -31,8 +31,7 @@ describe( 'Tab', () => {
 
       tab._mountWidget();
 
-      expect( libui.UiTab.prototype.append ).to.have.been.calledOn( tab.widget ).and.calledWith( 'foo', child1.widget )
-        .and.subsequently.calledOn( tab.widget ).and.calledWith( 'bar', child2.widget );
+      expect( libui.UiTab.prototype.append ).to.have.been.calledOn( tab.widget ).and.calledWith( 'foo', child1.widget ).and.calledWith( 'bar', child2.widget );
 
       expect( tab.widget.children ).to.deep.equal( [ child1.widget, child2.widget ] );
   } );
@@ -52,8 +51,7 @@ describe( 'Tab', () => {
 
       tab._mountWidget();
 
-      expect( libui.UiTab.prototype.setMargined ).to.have.been.calledOn( tab.widget ).and.calledWith( 0, true )
-        .and.subsequently.calledOn( tab.widget ).and.calledWith( 1, true );
+      expect( libui.UiTab.prototype.setMargined ).to.have.been.calledOn( tab.widget ).and.calledWith( 0, true ).and.calledWith( 1, true );
   } );
 
   it( 'appendChild', () => {

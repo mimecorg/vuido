@@ -264,9 +264,9 @@ describe( 'Area', () => {
         expect( context.save ).to.have.been.called;
         expect( context.transform ).to.have.been.calledImmediatelyAfter( context.save ).and.calledWith( transform );
         expect( context.fill ).to.have.been.calledAfter( context.transform ).and.calledBefore( context.restore )
-          .and.calledWith( path1, fill1 ).and.subsequently.calledWith( path2, fill2 );
+          .and.calledWith( path1, fill1 ).and.calledWith( path2, fill2 );
         expect( context.stroke ).to.have.been.calledAfter( context.transform ).and.calledBefore( context.restore )
-          .and.calledWith( path1, stroke1, line1 ).and.subsequently.calledWith( path2, stroke2, line2 );
+          .and.calledWith( path1, stroke1, line1 ).and.calledWith( path2, stroke2, line2 );
         expect( context.restore ).to.have.been.called;
         return true;
       } ) );

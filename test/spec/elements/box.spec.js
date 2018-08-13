@@ -90,8 +90,7 @@ describe( 'Box', () => {
       expect( button1.widget ).to.be.instanceof( libui.UiButton );
       expect( button2.widget ).to.be.instanceof( libui.UiButton );
 
-      expect( libui.UiBox.prototype.append ).to.have.been.calledOn( box.widget ).and.calledWith( button1.widget, false )
-        .and.subsequently.calledOn( box.widget ).and.calledWith( button2.widget, false );
+      expect( libui.UiBox.prototype.append ).to.have.been.calledOn( box.widget ).and.calledWith( button1.widget, false ).and.calledWith( button2.widget, false );
 
       expect( box.widget.children ).to.deep.equal( [ button1.widget, button2.widget ] );
     } );

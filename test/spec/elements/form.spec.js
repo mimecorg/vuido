@@ -37,7 +37,7 @@ describe( 'Form', () => {
       expect( form.widget.padded ).to.be.true;
 
       expect( libui.UiForm.prototype.append ).to.have.been.calledOn( form.widget ).and.calledWith( 'foo', child1.widget, false )
-        .and.subsequently.calledOn( form.widget ).and.calledWith( 'bar', child2.widget, true );
+        .and.calledWith( 'bar', child2.widget, true );
 
       expect( form.widget.children ).to.deep.equal( [ child1.widget, child2.widget ] );
   } );
