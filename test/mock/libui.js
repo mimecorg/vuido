@@ -304,4 +304,18 @@ libui.startLoop = function() {
 libui.stopLoop = function() {
 };
 
+libui.UiDialogs = {
+  msgBox( parent, title, description ) {
+  },
+
+  msgBoxError( parent, title, description ) {
+  },
+
+  openFile( parent ) {
+  },
+
+  saveFile( parent ) {
+  }
+};
+
 module.exports = libui;

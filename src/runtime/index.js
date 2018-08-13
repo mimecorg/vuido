@@ -63,4 +63,34 @@ Vue.prototype.$exit = function() {
   libui.stopLoop();
 };
 
+class DialogsHelper {
+  constructor( vm ) {
+    this.vm = vm;
+  }
+
+  msgBox( title, description ) {
+    libui.UiDialogs.msgBox( this.vm.$root.$el.window, title, description );
+  }
+
+  msgBoxError( title, description ) {
+    libui.UiDialogs.msgBoxError( this.vm.$root.$el.window, title, description );
+  }
+
+  openFile() {
+    return libui.UiDialogs.openFile( this.vm.$root.$el.window );
+  }
+
+  saveFile() {
+    return libui.UiDialogs.saveFile( this.vm.$root.$el.window );
+  }
+};
+
+Object.defineProperty( Vue.prototype, '$dialogs', {
+  get() {
+    if ( this._dialogsHelper == null )
+      this._dialogsHelper = new DialogsHelper( this );
+    return this._dialogsHelper;
+  }
+} );
+
 export default Vue;

@@ -307,4 +307,54 @@ describe( 'runtime', () => {
       expect( libui.stopLoop ).to.have.been.calledOnce;
     } );
   } );
+
+  describe( '$dialogs', () => {
+    let vm = null;
+
+    beforeEach( () => {
+      vm = new Vue( {
+        render( h ) {
+          return h( 'Window', { attrs: { title: 'foo' } } );
+        }
+      } );
+
+      vm.$mount();
+    } );
+
+    it( 'msgBox', () => {
+      sinon.spy( libui.UiDialogs, 'msgBox' );
+
+      vm.$dialogs.msgBox( 'foo', 'bar' );
+
+      expect( libui.UiDialogs.msgBox ).to.have.been.calledWith( vm.$el.window, 'foo', 'bar' );
+    } );
+
+    it( 'msgBoxError', () => {
+      sinon.spy( libui.UiDialogs, 'msgBoxError' );
+
+      vm.$dialogs.msgBoxError( 'foo', 'bar' );
+
+      expect( libui.UiDialogs.msgBoxError ).to.have.been.calledWith( vm.$el.window, 'foo', 'bar' );
+    } );
+
+    it( 'openFile', () => {
+      sinon.stub( libui.UiDialogs, 'openFile' ).returns( 'foo' );
+
+      const result = vm.$dialogs.openFile();
+
+      expect( libui.UiDialogs.openFile ).to.have.been.calledWith( vm.$el.window );
+
+      expect( result ).to.equal( 'foo' );
+    } );
+
+    it( 'saveFile', () => {
+      sinon.stub( libui.UiDialogs, 'saveFile' ).returns( 'foo' );
+
+      const result = vm.$dialogs.saveFile();
+
+      expect( libui.UiDialogs.saveFile ).to.have.been.calledWith( vm.$el.window );
+
+      expect( result ).to.equal( 'foo' );
+    } );
+  } );
 } );
