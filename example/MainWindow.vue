@@ -131,7 +131,7 @@
         this.progress = Math.min( Math.max( 0, this.progress + step ), 100 );
       },
       exit() {
-        libui.stopLoop();
+        this.$exit();
       }
     }
   }

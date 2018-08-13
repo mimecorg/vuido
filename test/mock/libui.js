@@ -298,4 +298,10 @@ libui.DrawStrokeParams = class {
   }
 };
 
+libui.startLoop = function() {
+};
+
+libui.stopLoop = function() {
+};
+
 module.exports = libui;

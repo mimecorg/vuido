@@ -1,4 +1,3 @@
-import libui from 'libui-node'
 import Vue from 'vuido'
 
 import MainWindow from './MainWindow'
@@ -9,6 +8,4 @@ const window = new Vue( {
   }
 } );
 
-window.$mount();
-
-libui.startLoop();
+window.$start();
