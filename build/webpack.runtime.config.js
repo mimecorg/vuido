@@ -5,6 +5,7 @@ const VuidoVersion = require( '../package' ).version;
 const VueVersion = require( 'vue/package' ).version;
 
 module.exports = {
+  mode: 'none',
   entry: './src/runtime/index.js',
   output: {
     path: path.resolve( __dirname, '../dist' ),

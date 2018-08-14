@@ -4,6 +4,7 @@ const webpack = require( 'webpack' );
 const VuidoVersion = require( '../package' ).version;
 
 module.exports = {
+  mode: 'none',
   entry: './src/compiler/index.js',
   output: {
     path: path.resolve( __dirname, '../packages/vuido-template-compiler' ),

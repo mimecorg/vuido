@@ -4,6 +4,7 @@ const webpack = require( 'webpack' );
 const VuidoVersion = require( '../package' ).version;
 
 module.exports = {
+  mode: 'none',
   entry: './src/runtime/dom.js',
   output: {
     path: path.resolve( __dirname, '../packages/libui-node-dom' ),
