@@ -89,50 +89,50 @@
 </template>
 
 <script>
-  import libui from 'libui-node'
+import libui from 'libui-node'
 
-  import ExampleArea from './ExampleArea'
+import ExampleArea from './ExampleArea'
 
-  export default {
-    components: {
-      ExampleArea
+export default {
+  components: {
+    ExampleArea
+  },
+  data() {
+    return {
+      text: 'Text input',
+      multilineText: 'Text area',
+      items: [ 'Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5' ],
+      dropdown: 0,
+      combobox: 'Combobox',
+      spinbox: 30,
+      slider: 40,
+      color: new libui.Color( 0, 175 / 255, 130 / 255, 1 ),
+      font: null,
+      enabled: true,
+      visible: true,
+      radio: 0,
+      progress: 10
+    };
+  },
+  computed: {
+    colorString() {
+      return 'R: ' + Math.floor( this.color.r * 255 ) + ', G: ' + Math.floor( this.color.g * 255 ) + ', B: ' + Math.floor( this.color.b * 255 ) + ', A: ' + Math.floor( this.color.a * 255 );
     },
-    data() {
-      return {
-        text: 'Text input',
-        multilineText: 'Text area',
-        items: [ 'Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5' ],
-        dropdown: 0,
-        combobox: 'Combobox',
-        spinbox: 30,
-        slider: 40,
-        color: new libui.Color( 0, 175 / 255, 130 / 255, 1 ),
-        font: null,
-        enabled: true,
-        visible: true,
-        radio: 0,
-        progress: 10
-      };
+    fontString() {
+      if ( this.font != null )
+        return this.font.getFamily() + ' ' + this.font.getSize() + ', weight=' + this.font.getWeight() + ', italic=' + this.font.getItalic() + ', stretch=' + this.font.getStretch();
+    }
+  },
+  methods: {
+    show() {
+      this.font = this.$refs.fontButton.font;
     },
-    computed: {
-      colorString() {
-        return 'R: ' + Math.floor( this.color.r * 255 ) + ', G: ' + Math.floor( this.color.g * 255 ) + ', B: ' + Math.floor( this.color.b * 255 ) + ', A: ' + Math.floor( this.color.a * 255 );
-      },
-      fontString() {
-        if ( this.font != null )
-          return this.font.getFamily() + ' ' + this.font.getSize() + ', weight=' + this.font.getWeight() + ', italic=' + this.font.getItalic() + ', stretch=' + this.font.getStretch();
-      }
+    changeProgress( step ){
+      this.progress = Math.min( Math.max( 0, this.progress + step ), 100 );
     },
-    methods: {
-      show() {
-        this.font = this.$refs.fontButton.font;
-      },
-      changeProgress( step ){
-        this.progress = Math.min( Math.max( 0, this.progress + step ), 100 );
-      },
-      exit() {
-        this.$exit();
-      }
+    exit() {
+      this.$exit();
     }
   }
+}
 </script>
