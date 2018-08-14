@@ -35,7 +35,7 @@ module.exports = {
       __WEEX__: false
     } ),
     new webpack.BannerPlugin( {
-      banner: 'Vuido template compiler v' + VuidoVersion + ' | Copyright (C) 2018 Michał Męciński | License: MIT'
+      banner: 'Vuido template compiler v' + VuidoVersion + '\nCopyright (C) 2018 Michał Męciński\nLicense: MIT'
     } )
   ],
   performance: {
