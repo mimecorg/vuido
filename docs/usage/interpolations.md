@@ -24,11 +24,11 @@ export default {
 </script>
 ```
 
-This will display "Hello, John" in the [Text](../components/widgets/text.md) widget. Thanks to reactivity built into Vue.js, the data is bound to the text of the widget, so when the value of the `name` property is changed, the text is automatically updated.
+This will display "Hello, John" in the [Text](../built-in-components/widgets/text.md) widget. Thanks to reactivity built into Vue.js, the data is bound to the text of the widget, so when the value of the `name` property is changed, the text is automatically updated.
 
 You can use simple JavaScript expressions inside the mustaches, for example `{{ number + 1 }}`.
 
-The interpolation mechanism can also be used in other widgets which have static labels, for example [Button](../components/widgets/button.md) and [Checkbox](../components/widgets/checkbox.md).
+The interpolation mechanism can also be used in other widgets which have static labels, for example [Button](../built-in-components/widgets/button.md) and [Checkbox](../built-in-components/widgets/checkbox.md).
 
 ## Binding Attributes
 

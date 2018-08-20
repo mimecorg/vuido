@@ -25,10 +25,11 @@ const VueLoaderPlugin = require( 'vue-loader/lib/plugin' );
 const VuidoTemplateCompiler = require( 'vuido-template-compiler' );
 
 module.exports = {
+  mode: 'development',
   entry: './src/main.js',
   output: {
     path: path.resolve( __dirname, '../dist' ),
-    filename: 'bundle.js'
+    filename: 'main.js'
   }
   target: 'node',
   module: {

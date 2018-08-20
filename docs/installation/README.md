@@ -36,12 +36,18 @@ xcode-select --install
 
 ## Quick Setup
 
-The easiest way to start using Vuido is to use [vue-cli](https://www.npmjs.com/package/vue-cli) to create the scaffolding of the project.
+The easiest way to start using Vuido is to use Vue CLI to create a new project.
 
-First make sure that vue-cli is installed globally:
+In order to use the `vue init` command, you can install the vue-cli package globally:
 
 ```bash
 npm install --global vue-cli
+```
+
+If you prefer to use the new [Vue CLI 3](https://cli.vuejs.org/) instead, you have to install both @vue/cli and @vue/cli-init:
+
+```bash
+npm install --global @vue/cli @vue/cli-init
 ```
 
 Run the following command to create the project \(replace `my-project` with the name of your project\):

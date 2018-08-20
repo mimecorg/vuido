@@ -28,7 +28,7 @@ export default {
 </script>
 ```
 
-This creates a `fullName` property which will be automatically calculated based on the `firstName` and `lastName` properties. The example will display "Hello, John Smith" in the [Text](../components/widgets/text.md) widget.
+This creates a `fullName` property which will be automatically calculated based on the `firstName` and `lastName` properties. The example will display "Hello, John Smith" in the [Text](../built-in-components/widgets/text.md) widget.
 
 The above code can be also written like this:
 

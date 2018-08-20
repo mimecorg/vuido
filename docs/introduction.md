@@ -20,7 +20,7 @@ Applications using Vuido can also use the standard Node.js API, for example the 
 
 ## Development Status
 
-Currently Vuido implements the basic containers and widgets and it's ready to be used for creating simple applications. More advanced features are under active development.
+Currently Vuido implements the basic containers and widgets supported by libui. It is ready to be used for creating simple applications. For an example of a real life application created using Vuido, see the [LaunchUI Packager GUI](https://github.com/mimecorg/launchui-packager-gui) project.
 
 Bug reports and feature requests are welcome, however please look for a related issue in the [libui](https://github.com/andlabs/libui) project first, because Vuido can only implement functionality which is already implemented in libui.
 
@@ -32,7 +32,7 @@ Vuido was inspired by [Proton Native](https://github.com/kusti8/proton-native), 
 
 ## License
 
-Vuido is licensed under the MIT license
+Vuido is licensed under the MIT license.
 
-Copyright \(C\) 2018 Michał Męciński
+Copyright \(C\) 2018 Michał Męciński.
 

@@ -93,7 +93,7 @@ export default {
 </script>
 ```
 
-When the user edits the text in the [TextInput](../components/widgets/textinput.md) widget, the value of the `text` property is automatically updated. When the `text` property in changed by code, the input widget is also updated.
+When the user edits the text in the [TextInput](../built-in-components/widgets/textinput.md) widget, the value of the `text` property is automatically updated. When the `text` property in changed by code, the input widget is also updated.
 
 The `v-model` directive is actually just a shorthand syntax for an attribute binding and event handling. The example could also be written as:
 
@@ -101,7 +101,7 @@ The `v-model` directive is actually just a shorthand syntax for an attribute bin
 <TextInput v-bind:value="text" v-on:input="text = $event"/>
 ```
 
-The `v-model` directive can be used with many different input widgets, including [TextInput](../components/widgets/textinput.md), [TextArea](../components/widgets/textarea.md), [Combobox](../components/widgets/combobox.md), [ColorButton](../components/widgets/colorbutton.md), [Slider](../components/widgets/slider.md), [Spinbox](../components/widgets/spinbox.md), [Checkbox](../components/widgets/checkbox.md), [RadioButtons](../components/widgets/radiobuttons.md) and [DropdownList](../components/widgets/dropdownlist.md). In case of a Checkbox, the value of the property is either `true` or `false`. In case of RadioButtons and DropdownList, the value is the index of the selected radio button or item.
+The `v-model` directive can be used with many different input widgets, including [TextInput](../built-in-components/widgets/textinput.md), [TextArea](../built-in-components/widgets/textarea.md), [Combobox](../built-in-components/widgets/combobox.md), [ColorButton](../built-in-components/widgets/colorbutton.md), [Slider](../built-in-components/widgets/slider.md), [Spinbox](../built-in-components/widgets/spinbox.md), [Checkbox](../built-in-components/widgets/checkbox.md), [RadioButtons](../built-in-components/widgets/radiobuttons.md) and [DropdownList](../built-in-components/widgets/dropdownlist.md). In case of a Checkbox, the value of the property is either `true` or `false`. In case of RadioButtons and DropdownList, the value is the index of the selected radio button or item.
 
 The `v-model` directive can also be used with [custom components](custom-components.md#custom-events).
 

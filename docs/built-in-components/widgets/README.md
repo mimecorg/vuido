@@ -2,6 +2,7 @@
 
 The following built-in widget components are available:
 
+* [Area](area/) - a custom drawn widget
 * [Button](button.md) - a simple button widget
 * [Checkbox](checkbox.md) - a checkbox widget
 * [ColorButton](colorbutton.md) - a button that opens a color selector dialog

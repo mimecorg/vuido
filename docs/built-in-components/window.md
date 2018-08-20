@@ -52,7 +52,7 @@ Whether the window is displayed without the border and title bar.
 
 ### close
 
-Called when the close button is clicked. To exit the application, call `libui.stopLoop()`. To close the window without exiting the application, call `this.$root.$destroy()`.
+Called when the close button is clicked. To exit the application, call `this.$exit()`. To close the window without exiting the application, call `this.$root.$destroy()`.
 
 ### show
 
@@ -68,7 +68,7 @@ Called when the size of the window is changed. The current size is passed as an 
 
 type: libui.UiWindow
 
-This property of the Window component returns the associated libui.UiWindow object. This makes it possible to pass the window as an argument of the libui.UiDialogs functions.
+This property of the Window component returns the associated libui.UiWindow object.
 
 ## Example
 
