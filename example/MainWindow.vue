@@ -77,9 +77,7 @@
               <TextInput label="Last name:"/>
               <Spinbox label="Age:" min="1" max="99"/>
             </Form>
-            <Box label="Tab 2">
-              <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
-            </Box>
+            <ExampleArea label="Area"/>
             <Box label="Tab 3">
               <Text>Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</Text>
             </Box>
@@ -91,45 +89,50 @@
 </template>
 
 <script>
-  import libui from 'libui-node'
+import libui from 'libui-node'
 
-  export default {
-    data() {
-      return {
-        text: 'Text input',
-        multilineText: 'Text area',
-        items: [ 'Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5' ],
-        dropdown: 0,
-        combobox: 'Combobox',
-        spinbox: 30,
-        slider: 40,
-        color: new libui.Color( 0, 175 / 255, 130 / 255, 1 ),
-        font: null,
-        enabled: true,
-        visible: true,
-        radio: 0,
-        progress: 10
-      };
+import ExampleArea from './ExampleArea'
+
+export default {
+  components: {
+    ExampleArea
+  },
+  data() {
+    return {
+      text: 'Text input',
+      multilineText: 'Text area',
+      items: [ 'Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5' ],
+      dropdown: 0,
+      combobox: 'Combobox',
+      spinbox: 30,
+      slider: 40,
+      color: new libui.Color( 0, 175 / 255, 130 / 255, 1 ),
+      font: null,
+      enabled: true,
+      visible: true,
+      radio: 0,
+      progress: 10
+    };
+  },
+  computed: {
+    colorString() {
+      return 'R: ' + Math.floor( this.color.r * 255 ) + ', G: ' + Math.floor( this.color.g * 255 ) + ', B: ' + Math.floor( this.color.b * 255 ) + ', A: ' + Math.floor( this.color.a * 255 );
     },
-    computed: {
-      colorString() {
-        return 'R: ' + Math.floor( this.color.r * 255 ) + ', G: ' + Math.floor( this.color.g * 255 ) + ', B: ' + Math.floor( this.color.b * 255 ) + ', A: ' + Math.floor( this.color.a * 255 );
-      },
-      fontString() {
-        if ( this.font != null )
-          return this.font.getFamily() + ' ' + this.font.getSize() + ', weight=' + this.font.getWeight() + ', italic=' + this.font.getItalic() + ', stretch=' + this.font.getStretch();
-      }
+    fontString() {
+      if ( this.font != null )
+        return this.font.getFamily() + ' ' + this.font.getSize() + ', weight=' + this.font.getWeight() + ', italic=' + this.font.getItalic() + ', stretch=' + this.font.getStretch();
+    }
+  },
+  methods: {
+    show() {
+      this.font = this.$refs.fontButton.font;
     },
-    methods: {
-      show() {
-        this.font = this.$refs.fontButton.font;
-      },
-      changeProgress( step ){
-        this.progress = Math.min( Math.max( 0, this.progress + step ), 100 );
-      },
-      exit() {
-        libui.stopLoop();
-      }
+    changeProgress( step ){
+      this.progress = Math.min( Math.max( 0, this.progress + step ), 100 );
+    },
+    exit() {
+      this.$exit();
     }
   }
+}
 </script>

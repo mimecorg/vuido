@@ -5,6 +5,7 @@ const VuidoVersion = require( '../package' ).version;
 const VueVersion = require( 'vue/package' ).version;
 
 module.exports = {
+  mode: 'none',
   entry: './src/runtime/index.js',
   output: {
     path: path.resolve( __dirname, '../dist' ),
@@ -36,7 +37,7 @@ module.exports = {
       __VUE_VERSION__: "'" + VueVersion + "'"
     } ),
     new webpack.BannerPlugin( {
-      banner: 'Vuido v' + VuidoVersion + ' | Copyright (C) 2018 Michał Męciński | License: MIT'
+      banner: 'Vuido v' + VuidoVersion + '\nCopyright (C) 2018 Michał Męciński\nLicense: MIT'
     } )
   ],
   performance: {

@@ -1,3 +1,7 @@
+export * from './area'
+export * from './areagroup'
+export * from './areapath'
+export * from './areatext'
 export * from './box'
 export * from './button'
 export * from './checkbox'

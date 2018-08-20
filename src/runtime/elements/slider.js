@@ -1,9 +1,9 @@
 import libui from 'libui-node'
 
-import {Widget} from './widget'
+import { Widget } from './widget'
 
 export class Slider extends Widget {
-  getDefaultAttributes() {
+  _getDefaultAttributes() {
     return {
       ...super._getDefaultAttributes(),
       value: 0,

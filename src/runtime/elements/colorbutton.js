@@ -3,7 +3,7 @@ import libui from 'libui-node'
 import { Widget } from './widget'
 
 export class ColorButton extends Widget {
-  getDefaultAttributes() {
+  _getDefaultAttributes() {
     return {
       ...super._getDefaultAttributes(),
       value: new libui.Color( 0, 0, 0, 1 )

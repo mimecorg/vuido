@@ -4,6 +4,7 @@ const webpack = require( 'webpack' );
 const VuidoVersion = require( '../package' ).version;
 
 module.exports = {
+  mode: 'none',
   entry: './src/compiler/index.js',
   output: {
     path: path.resolve( __dirname, '../packages/vuido-template-compiler' ),
@@ -34,7 +35,7 @@ module.exports = {
       __WEEX__: false
     } ),
     new webpack.BannerPlugin( {
-      banner: 'Vuido template compiler v' + VuidoVersion + ' | Copyright (C) 2018 Michał Męciński | License: MIT'
+      banner: 'Vuido template compiler v' + VuidoVersion + '\nCopyright (C) 2018 Michał Męciński\nLicense: MIT'
     } )
   ],
   performance: {

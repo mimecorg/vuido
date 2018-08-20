@@ -13,7 +13,9 @@
     "build:compiler": "webpack --config build/webpack.compiler.config.js",
     "build:dom": "webpack --config build/webpack.dom.config.js",
     "build:example": "webpack --config example/build/webpack.config.js",
-    "example": "node ./example/dist/main.js"
+    "example": "node ./example/dist/main.js",
+    "test": "mocha test/index.js test/spec/**/*.spec.js",
+    "test:watch": "mocha --watch test/index.js test/spec/**/*.spec.js"
   },
   "repository": {
     "type": "git",
@@ -36,16 +38,22 @@
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
+    "babel-loader": "^7.1.5",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "chai": "^4.1.2",
     "de-indent": "^1.0.2",
     "he": "^1.1.1",
-    "vue": "^2.5.16",
-    "vue-loader": "^15.0.11",
-    "vue-template-compiler": "^2.5.16",
-    "webpack": "^3.12.0"
+    "mocha": "^5.2.0",
+    "mock-require": "^3.0.2",
+    "sinon": "^6.1.5",
+    "sinon-chai": "^3.2.0",
+    "vue": "^2.5.17",
+    "vue-loader": "^15.3.0",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0"
   }
 }
