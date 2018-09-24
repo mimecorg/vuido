@@ -8,5 +8,7 @@ LaunchUI wraps Node.js with a small executable which automatically runs the appl
 
 The easiest way to create a package for your application is to use the [LaunchUI Packager](https://github.com/mimecorg/launchui-packager). It provides an API for creating packages for Windows, Linux and OS X.
 
-You can also manually download the binary package for the target platform from [LaunchUI releases](https://github.com/mimecorg/launchui/releases), unpack it and replace the example `app/main.js` script with your application script.
+You can also use [LaunchUI Packager GUI](https://github.com/mimecorg/launchui-packager-gui), a desktop application which simplifies creating LaunchUI packages without using custom scripts.
+
+To manually package your application, download the binary package for your target platform from [LaunchUI releases](https://github.com/mimecorg/launchui/releases), unpack it and replace the example `app/main.js` script with your application script.
 
