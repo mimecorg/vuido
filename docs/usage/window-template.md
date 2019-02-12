@@ -36,7 +36,7 @@ You can nest multiple containers to create more complex layouts. For example, le
       <Box horizontal padded>
         <Button>OK</Button>
         <Button>Cancel</Button>
-      <Box>
+      </Box>
     </Box>
   </Window>
 </template>
