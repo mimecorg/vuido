@@ -1,5 +1,6 @@
 const path = require( 'path' );
 const webpack = require( 'webpack' );
+const babelConfig = require( '../.babelrc' );
 
 const VuidoVersion = require( '../package' ).version;
 const VueVersion = require( 'vue/package' ).version;
@@ -18,7 +19,8 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
+        options: babelConfig,
       }
     ]
   },

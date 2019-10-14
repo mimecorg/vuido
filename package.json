@@ -2,58 +2,58 @@
   "name": "vuido",
   "version": "0.2.0",
   "description": "Native desktop applications using Vue.js",
-  "main": "dist/vuido.js",
-  "files": [
-    "dist/*.js",
-    "src"
+  "keywords": [
+    "desktop",
+    "libui",
+    "vue",
+    "vuido"
   ],
-  "scripts": {
-    "build": "npm run build:runtime && npm run build:compiler && npm run build:dom && npm run build:example",
-    "build:runtime": "webpack --config build/webpack.runtime.config.js",
-    "build:compiler": "webpack --config build/webpack.compiler.config.js",
-    "build:dom": "webpack --config build/webpack.dom.config.js",
-    "build:example": "webpack --config example/build/webpack.config.js",
-    "example": "node ./example/dist/main.js",
-    "test": "mocha test/index.js test/spec/**/*.spec.js",
-    "test:watch": "mocha --watch test/index.js test/spec/**/*.spec.js"
+  "homepage": "https://github.com/mimecorg/vuido",
+  "bugs": {
+    "url": "https://github.com/mimecorg/vuido/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mimecorg/vuido.git"
   },
-  "keywords": [
-    "vuido",
-    "vue",
-    "libui",
-    "desktop"
-  ],
-  "author": "Michał Męciński",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/mimecorg/vuido/issues"
+  "author": "Michał Męciński",
+  "files": [
+    "dist/*.js",
+    "src"
+  ],
+  "main": "dist/vuido.js",
+  "scripts": {
+    "build": "npm run build:runtime && npm run build:compiler && npm run build:dom && npm run build:example",
+    "build:compiler": "webpack --config build/webpack.compiler.config.js",
+    "build:dom": "webpack --config build/webpack.dom.config.js",
+    "build:example": "webpack --config example/build/webpack.config.js",
+    "build:runtime": "webpack --config build/webpack.runtime.config.js",
+    "example": "node ./example/dist/main.js",
+    "test": "mocha test/index.js test/spec/**/*.spec.js",
+    "test:watch": "mocha --watch test/index.js test/spec/**/*.spec.js"
   },
-  "homepage": "https://github.com/mimecorg/vuido",
   "dependencies": {
     "libui-node": "^0.2.1"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-flow-strip-types": "^6.22.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "chai": "^4.1.2",
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
+    "@babel/plugin-transform-flow-strip-types": "^7.6.3",
+    "@babel/preset-env": "^7.6.3",
+    "babel-loader": "^8.0.6",
+    "chai": "^4.2.0",
     "de-indent": "^1.0.2",
-    "he": "^1.1.1",
-    "mocha": "^5.2.0",
-    "mock-require": "^3.0.2",
-    "sinon": "^6.1.5",
-    "sinon-chai": "^3.2.0",
-    "vue": "^2.5.17",
-    "vue-loader": "^15.3.0",
-    "vue-template-compiler": "^2.5.17",
-    "webpack": "^4.16.5",
-    "webpack-cli": "^3.1.0"
+    "he": "^1.2.0",
+    "mocha": "^6.2.1",
+    "mock-require": "^3.0.3",
+    "sinon": "^7.5.0",
+    "sinon-chai": "^3.3.0",
+    "vue": "^2.6.10",
+    "vue-loader": "^15.7.1",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.41.1",
+    "webpack-cli": "^3.3.9"
   }
 }
